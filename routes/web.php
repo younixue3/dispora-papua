@@ -15,6 +15,10 @@ use App\Http\Controllers\Atlet\AtletController;
 |
 */
 
-Route::get('/home', [AtletController::class, 'index'])->name('home');
+Route::get('/', [AtletController::class, 'index'])->name('home');
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('login');
+});
 Auth::routes();
 
