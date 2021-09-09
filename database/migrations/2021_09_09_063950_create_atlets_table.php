@@ -16,8 +16,8 @@ class CreateAtletsTable extends Migration
         Schema::create('atlets', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lenkap');
-            $table->integer('no_kartu_keluarga');
-            $table->integer('no_ktp');
+            $table->integer('no_kartu_keluarga')->unique();
+            $table->integer('no_ktp')->unique();
             $table->integer('tahun_bergabung_npc');
             $table->string('npci_kota_kabupaten');
             $table->string('npci_provinsi');
@@ -69,7 +69,6 @@ class CreateAtletsTable extends Migration
             $table->string('riwayat_disabilitas');
             $table->string('alat_bantu_disabilitas');
             $table->string('jenis_disabilitas');
-
             $table->timestamps();
         });
     }

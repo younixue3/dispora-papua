@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Atlet extends Model
+class SingleEvent extends Model
 {
     use HasFactory;
-    protected $table = 'atlets';
+    protected $table = 'single_event';
     protected $guarded = [];
 }

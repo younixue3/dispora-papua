@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class AtletController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->middleware('auth:web', ['except' => ['login']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,7 @@ class AtletController extends Controller
      */
     public function index()
     {
-        //
+        return view('welcome');
     }
 
     /**
