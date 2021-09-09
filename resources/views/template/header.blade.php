@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/6fd3995802.js" crossorigin="anonymous"></script>
     <script src="../public/js/chartsjs/chart.js"></script>
 </head>
-<body class="font-default">
+<body>
 <!-- Header -->
 <div class="flex w-full">
     <div id="mobile-menu"
@@ -31,185 +31,19 @@
         <div class="text-lg font-normal tracking-tight">
             <ul class="py-5 px-1 py-2">
                 <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                    <a href="dashboard.html">
-                        <div class="bg-gray-300 hover:bg-gray-200 px-2 pt-1 rounded-lg">
+                    <a href="{{route('home')}}">
+                        <div class="{{ Route::is('home') ? 'bg-gray-300' : 'bg-gray-100'}} hover:bg-gray-200 px-2 pt-1 rounded-lg">
                             <i class="fas fa-columns mr-3"></i><span>Dashboard</span>
                         </div>
                     </a>
                 </li>
-                <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                    <div onclick="DropDown()" class="bg-gray-100 hover:bg-gray-200 w-auto px-2 pt-1 rounded-lg">
-                        <i class="fas fa-desktop mr-3"></i>
-                        <div class="inline-block w-3/4">Layout</div>
-                        <span class="overflow-hidden">
-                            <i class="my-auto fas fa-chevron-right transition-all duration-500 transform"></i>
-                        </span>
-                    </div>
-                    <ul class="hidden bg-gray-200 rounded-lg px-2.5 my-2 h-full truncate">
-                        <a href="boxed.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span class="">Boxed</span></li>
-                        </a>
-                        <a href="fixednavbar.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Fixed Navbar</span></li>
-                        </a>
-                        <a href="fixedsidebar.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Fixed Sidebar</span></li>
-                        </a>
-                        <a href="fixednavsidebar.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Fixed Sidebar + Navbar</span></li>
-                        </a>
-                    </ul>
-                </li>
-                <a href="charts.html">
+                <a href="{{route('atlet.index')}}">
                     <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                        <div class="bg-gray-100 hover:bg-gray-200 px-2 pt-1 rounded-lg">
-                            <i class="fas fa-chart-pie mr-3"></i><span>Charts</span>
+                        <div class="{{ Route::is('atlet.index') ? 'bg-gray-300' : 'bg-gray-100'}} hover:bg-gray-200 px-2 pt-1 rounded-lg">
+                            <i class="fas fa-running mr-3"></i><span>Atlet</span>
                         </div>
                     </li>
                 </a>
-                <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                    <div onclick="DropDown()" class="bg-gray-100 hover:bg-gray-200 px-2 pt-1 rounded-lg">
-                        <i class="fas fa-puzzle-piece mr-3"></i>
-                        <div class="inline-block w-3/4">Components</div>
-                        <span class="overflow-hidden">
-                            <i class="my-auto fas fa-chevron-right transition-all duration-500 transform"></i>
-                        </span>
-                    </div>
-                    <ul class="hidden bg-gray-200 rounded-lg px-2.5 my-2 h-full truncate">
-                        <a href="theme.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Theme</span>
-                            </li>
-                        </a>
-                        <a href="button.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Buttons</span>
-                            </li>
-                        </a>
-                        <a href="modalsalerts.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Modals & Alerts</span>
-                            </li>
-                        </a>
-                        <a href="cards.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Cards</span>
-                            </li>
-                        </a>
-                        <a href="forms.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Forms</span>
-                            </li>
-                        </a>
-                        <a href="tables.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Tables</span>
-                            </li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                    <div onclick="DropDown()" class="bg-gray-100 hover:bg-gray-200 px-2 pt-1 rounded-lg">
-                        <i class="fas fa-window-maximize mr-3"></i>
-                        <div class="inline-block w-3/4">Pages</div>
-                        <span class="overflow-hidden">
-                            <i class="my-auto fas fa-chevron-right transition-all duration-500 transform"></i>
-                        </span>
-                    </div>
-                    <ul class="hidden bg-gray-200 rounded-lg px-2.5 my-2 h-full truncate">
-                        <a href="login.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Login</span>
-                            </li>
-                        </a>
-                        <a href="register.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Register</span>
-                            </li>
-                        </a>
-                        <a href="errors.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Errors</span>
-                            </li>
-                        </a>
-                        <a href="searchs.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Searchs</span>
-                            </li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
-                    <div onclick="DropDown()" class="bg-gray-100 hover:bg-gray-200 px-2 pt-1 rounded-lg">
-                        <i class="fas fa-hand-holding-heart mr-3"></i>
-                        <div class="inline-block w-3/4">Example</div>
-                        <span class="overflow-hidden">
-                            <i class="my-auto fas fa-chevron-right transition-all duration-500 transform"></i>
-                        </span>
-                    </div>
-                    <ul class="hidden bg-gray-200 rounded-lg px-2.5 my-2 h-full truncate">
-                        <a href="blog.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Blog</span>
-                            </li>
-                        </a>
-                        <a href="hero.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Hero</span>
-                            </li>
-                        </a>
-                        <a href="mailbox.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Mailbox</span>
-                            </li>
-                        </a>
-                        <a href="calendars.html">
-                            <li onclick="DropDownItem()" class="my-1 cursor-pointer">
-                                <div
-                                    class="ml-1 mr-5 w-2 h-2 inline-block rounded-full ring ring-gray-800 ring-offset-2"></div>
-                                <span>Calendar</span>
-                            </li>
-                        </a>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>

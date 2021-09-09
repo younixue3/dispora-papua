@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Atlet\AtletController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,12 @@ use App\Http\Controllers\Atlet\AtletController;
 |
 */
 
-Route::get('/', [AtletController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'atlet'], function () {
+    Route::get('/', [AtletController::class, 'index'])->name('atlet.index');
+});
+
 Route::get('/logout', function() {
     Auth::logout();
     return redirect('login');
