@@ -9,7 +9,7 @@ class AtletController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->middleware('auth:web', ['except' => ['login']]);
+        $this->middleware('auth');
     }
 
     /**
