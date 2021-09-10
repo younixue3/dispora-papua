@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Atlet;
 
+use App\Imports\AtletImport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AtletController extends Controller
 {
@@ -29,7 +31,7 @@ class AtletController extends Controller
      */
     public function create()
     {
-        //
+        return view('atlet/add');
     }
 
     /**
@@ -40,7 +42,13 @@ class AtletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request->file);
+        $file = $request->file('file');
+        $nameFile = $file->getClientOriginalName();
+        $file->move('DataAtlet', $nameFile);
+
+        Excel::import(new AtletImport, public_path('/DataAtlet/'.$nameFile));
+        return redirect(route('atlet.add'));
     }
 
     /**

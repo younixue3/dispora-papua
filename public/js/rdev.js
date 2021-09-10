@@ -213,5 +213,6 @@ function action_btn() {
         bar.classList.remove('hidden')
     } else {
         bar.classList.add('hidden')
+        bar.classList.add('action-active')
     }
 }
