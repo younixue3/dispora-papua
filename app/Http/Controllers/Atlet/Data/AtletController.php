@@ -36,7 +36,9 @@ class AtletController extends Controller
         return Excel::import(new SingleEventImport, public_path('/DataAtlet/coba.xlsx'));
     }
 
-    public function export_data(Request $request)
+    public function get_show_data($id)
     {
+        $data = Atlet::findOrFail($id);
+        return $data;
     }
 }

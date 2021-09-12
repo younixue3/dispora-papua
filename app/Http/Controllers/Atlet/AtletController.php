@@ -66,6 +66,14 @@ class AtletController extends Controller
         return Excel::download(new AtletExport, 'export.xlsx');
     }
 
+    public function export_atlet($id)
+    {
+        $data = $this->data->get_show_data($id);
+
+        $data = compact('data');
+        return view('atlet/output/pdf', $data);
+    }
+
     /**
      * Display the specified resource.
      *

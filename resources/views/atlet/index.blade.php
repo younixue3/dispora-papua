@@ -39,9 +39,11 @@
                     </td>
                     <td class="py-1">{{$item->cabang_olahraga}}</td>
                     <td class="py-1">
-                        <button class="bg-green-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
-                            <span class="align-text-top">View</span>
-                        </button>
+                        <a href="{{route('atlet.export_atlet', $item->id)}}">
+                            <button class="bg-green-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
+                                <span class="align-text-top">View</span>
+                            </button>
+                        </a>
                     </td>
                 </tr>
             @endforeach
