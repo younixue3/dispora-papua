@@ -17,12 +17,10 @@ class CreateMultiEventTable extends Migration
             $table->id();
             $table->string('multi_event_terbaik_ajang');
             $table->string('multi_event_terbaik_no_pertandingan');
-            $table->integer('multi_event_terbaik_tahun');
+            $table->string('multi_event_terbaik_tahun');
             $table->string('multi_event_terbaik_tempat');
-            $table->unsignedBigInteger('atlet_id');
+            $table->string('atlet_id');
             $table->timestamps();
-
-            $table->foreign('atlet_id')->references('id')->on('atlets');
         });
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Atlet\AtletController;
 use App\Http\Controllers\HomeController;
 
@@ -22,6 +21,7 @@ Route::group(['prefix' => 'atlet'], function () {
     Route::get('/', [AtletController::class, 'index'])->name('atlet.index');
     Route::get('/add', [AtletController::class, 'create'])->name('atlet.add');
     Route::post('/store', [AtletController::class, 'store'])->name('atlet.store');
+    Route::get('/export', [AtletController::class, 'export'])->name('atlet.export');
 });
 
 Route::get('/logout', function() {

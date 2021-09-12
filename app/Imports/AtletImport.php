@@ -3,12 +3,22 @@
 namespace App\Imports;
 
 use App\Models\Atlet;
+use App\Models\SingleEvent;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithMappedCells;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
 use PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder;
+
+
+use App\Imports\SingleEventImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Session;
+
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+
 
 class AtletImport extends DefaultValueBinder implements WithMappedCells, ToModel, WithCustomValueBinder
 {
@@ -27,67 +37,67 @@ class AtletImport extends DefaultValueBinder implements WithMappedCells, ToModel
     public function mapping(): array
     {
         return [
-            'nama_lengkap'  => 'D6',
-            'no_kartu_keluarga' => 'D8',
-            'no_ktp' => 'D10',
-            'tahun_bergabung_npc' => 'D12',
-            'npci_kota_kabupaten' => 'D14',
-            'npci_provinsi' => 'D16',
-            'link_kartu_keluarga' => 'F18',
-            'link_ktp' => 'F20',
-            'link_pas_foto' => 'F22',
-            'no_handphone' => 'D24',
-            'email_aktif' => 'D26',
-            'tempat_lahir' => 'D28',
-            'tanggal_lahir' => 'D30',
-            'agama' => 'D32',
-            'status_pernikahan' => 'D34',
-            'jenis_kelamin' => 'D36',
-            'pekerjaan' => 'D38',
-            'alamat' => 'D41',
-            'rt_rw' => 'D43',
-            'alamat_kecamatan' => 'D45',
-            'alamat_kabupaten' => 'D47',
-            'alamat_provinsi' => 'D49',
-            'alamat_kode_pos' => 'D51',
-            'hobi' => 'D53',
-            'tinggi_badan' => 'D55',
-            'berat_badan' => 'D57',
-            'ukuran_baju' => 'D59',
-            'ukuran_celana' => 'D61',
-            'ukuran_sepatu' => 'D63',
-            'gol_darah' => 'D65',
-            'passport_tgl_terbit' => 'F67',
-            'passport_tgl_kadaluarsa' => 'F69',
-            'no_npwp' => 'D71',
-            'pendidikan_sd' => 'D74',
-            'tahun_lulus_sd' => 'H74',
-            'pendidikan_smp' => 'D76',
-            'tahun_lulus_smp' => 'H76',
-            'pendidikan_sma' => 'D78',
-            'tahun_lulus_sma' => 'H78',
-            'pendidikan_kuliah' => 'D80',
-            'jurusan_kuliah' => 'G80',
-            'periode_kuliah' => 'G81',
-            'cabang_olahraga' => 'D83',
-            'kelas_klasifikasi_cabor' => 'D85',
-            'status_klasifikasi' => 'D87',
-            'status_prestasi_atlet' => 'D89',
-            'riwayat_klasifikasi' => 'D91',
-            'tahun_klasifikasi' => 'G91',
-            'riwayat_kesehatan_cedera' => 'D93',
-            'tahun_checkup' => 'G93',
-            'vaksin_cov19' => 'D95',
-            'tgl_vaksin_kedua' => 'G95',
-            'riwayat_disabilitas' => 'D97',
-            'alat_bantu_disabilitas' => 'D99',
-            'jenis_disabilitas' => 'D101',
+            'nama_lengkap'  => 'D10',
+            'no_kartu_keluarga' => 'D12',
+            'no_ktp' => 'D14',
+            'tahun_bergabung_npc' => 'D16',
+            'npci_kota_kabupaten' => 'D18',
+            'npci_provinsi' => 'D20',
+            'link_kartu_keluarga' => 'F22',
+            'link_ktp' => 'F23',
+            'link_pas_foto' => 'F24',
+            'no_handphone' => 'D26',
+            'email_aktif' => 'D28',
+            'tempat_lahir' => 'D30',
+            'tanggal_lahir' => 'D32',
+            'agama' => 'D34',
+            'status_pernikahan' => 'D36',
+            'jenis_kelamin' => 'D38',
+            'pekerjaan' => 'D40',
+            'alamat' => 'D43',
+            'rt_rw' => 'D45',
+            'alamat_kecamatan' => 'D47',
+            'alamat_kabupaten' => 'D49',
+            'alamat_provinsi' => 'D51',
+            'alamat_kode_pos' => 'D53',
+            'hobi' => 'D55',
+            'tinggi_badan' => 'D57',
+            'berat_badan' => 'D59',
+            'ukuran_baju' => 'D61',
+            'ukuran_celana' => 'D63',
+            'ukuran_sepatu' => 'D65',
+            'gol_darah' => 'D67',
+            'passport_tgl_terbit' => 'F69',
+            'passport_tgl_kadaluarsa' => 'F70',
+            'no_npwp' => 'D72',
+            'pendidikan_sd' => 'D75',
+            'tahun_lulus_sd' => 'H75',
+            'pendidikan_smp' => 'D77',
+            'tahun_lulus_smp' => 'H77',
+            'pendidikan_sma' => 'D79',
+            'tahun_lulus_sma' => 'H79',
+            'pendidikan_kuliah' => 'D81',
+            'jurusan_kuliah' => 'G81',
+            'periode_kuliah' => 'G82',
+            'cabang_olahraga' => 'D85',
+            'kelas_klasifikasi_cabor' => 'D87',
+            'status_klasifikasi' => 'D89',
+            'status_prestasi_atlet' => 'D91',
+            'riwayat_klasifikasi' => 'D93',
+            'tahun_klasifikasi' => 'G93',
+            'riwayat_kesehatan_cedera' => 'D95',
+            'tahun_checkup' => 'G95',
+            'vaksin_cov19' => 'D97',
+            'tgl_vaksin_kedua' => 'G97',
+            'riwayat_disabilitas' => 'D99',
+            'alat_bantu_disabilitas' => 'D101',
+            'jenis_disabilitas' => 'D103',
         ];
     }
 
     public function model(array $row)
     {
-//        dd(is_numeric($row['no_kartu_keluarga']));
+//        dd($row['cabang_olahraga']);
         return new Atlet([
             'nama_lengkap' => $row['nama_lengkap'],
             'no_kartu_keluarga' => $row['no_kartu_keluarga'],
@@ -145,5 +155,6 @@ class AtletImport extends DefaultValueBinder implements WithMappedCells, ToModel
             'alat_bantu_disabilitas' => $row['alat_bantu_disabilitas'],
             'jenis_disabilitas' => $row['jenis_disabilitas'],
         ]);
+
     }
 }

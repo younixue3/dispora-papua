@@ -3,15 +3,22 @@
 namespace App\Http\Controllers\Atlet;
 
 use App\Imports\AtletImport;
+use App\Exports\AtletExport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Atlet;
+use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Atlet\Data\AtletController as DataController;
+
+use Session;
 
 class AtletController extends Controller
 {
-    public function __construct(Request $request)
+    public function __construct(Request $request, DataController $data)
     {
         $this->middleware('auth');
+        $this->data = $data;
     }
 
     /**
@@ -21,7 +28,11 @@ class AtletController extends Controller
      */
     public function index()
     {
-        return view('atlet/index');
+        $atlet = $this->data->get_data();
+
+        $data = compact('atlet');
+
+        return view('atlet/index', $data);
     }
 
     /**
@@ -42,13 +53,17 @@ class AtletController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->file);
-        $file = $request->file('file');
-        $nameFile = $file->getClientOriginalName();
-        $file->move('DataAtlet', $nameFile);
+        if ($this->data->store_data($request)) {
+            return redirect()->route('atlet.add')->with('success', 'sukses');
+        }
+        return redirect()->back()->with('error', 'gagal');
+    }
 
-        Excel::import(new AtletImport, public_path('/DataAtlet/'.$nameFile));
-        return redirect(route('atlet.add'));
+    public function export(Request $request)
+    {
+//        return Excel::import([AtletImport::class, 'SingleEventExport'], public_path('/DataAtlet/atlet.xlsx'));;
+//        return Atlet::all();
+        return Excel::download(new AtletExport, 'export.xlsx');
     }
 
     /**

@@ -5,14 +5,14 @@
         <span class="text-sm mr-1">Made with <i class="text-red-600 fas fa-heart"></i> by <a
                 href="https://www.instagram.com/ricko.tiaka/" target="_blank">ricko.tiaka</a></span>
         <div class="md:float-right">
-            <a href="#">
+            <a class="inline-block" href="#">
                 <img class="w-7 h-7 mx-1" src="https://img.icons8.com/ios-filled/500/ffffff/facebook-new.png"/>
             </a>
-            <a href="#">
+            <a class="inline-block" href="#">
                 <img class="w-7 h-7 mx-1"
                      src="https://img.icons8.com/material-outlined/480/ffffff/instagram-new--v1.png"/>
             </a>
-            <a href="#">
+            <a class="inline-block" href="#">
                 <img class="w-7 h-7 mx-1" src="https://img.icons8.com/material-outlined/480/ffffff/globe--v2.png"/>
             </a>
         </div>

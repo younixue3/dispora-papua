@@ -17,12 +17,10 @@ class CreateSingleEventTable extends Migration
             $table->id();
             $table->string('single_event_terbaik_ajang');
             $table->string('single_event_terbaik_no_pertandingan');
-            $table->integer('single_event_terbaik_tahun');
+            $table->string('single_event_terbaik_tahun');
             $table->string('single_event_terbaik_tempat');
-            $table->unsignedBigInteger('atlet_id');
+            $table->string('atlet_id');
             $table->timestamps();
-
-            $table->foreign('atlet_id')->references('id')->on('atlets');
         });
     }
 
