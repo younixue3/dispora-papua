@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Session;
 
 use App\Models\Atlet;
+use App\Models\MultiEvent;
+use App\Models\SingleEvent;
 use App\Imports\AtletImport;
 use App\Imports\MultiEventImport;
 use App\Imports\SingleEventImport;
@@ -39,6 +41,18 @@ class AtletController extends Controller
     public function get_show_data($id)
     {
         $data = Atlet::findOrFail($id);
+        return $data;
+    }
+
+    public function get_single_event_data($ktp)
+    {
+        $data = SingleEvent::where('atlet_id', $ktp)->get();
+        return $data;
+    }
+
+    public function get_multi_event_data($ktp)
+    {
+        $data = MultiEvent::where('atlet_id', $ktp)->get();
         return $data;
     }
 }

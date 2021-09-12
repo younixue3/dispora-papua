@@ -229,6 +229,52 @@
             <label>Jenis Disabilitas</label>
             <input class="border border-black w-full" disabled value="{{$data->jenis_disabilitas}}">
         </div>
+        <div class="col-span-3 py-10">
+            <label>Riwayat Prestasi Terbaik (Single Event)</label>
+            <table class="table-auto border-2 border-black w-full">
+                <thead>
+                    <tr class="font-bold text-center">
+                        <th class="border border-black">Ajang / Event</th>
+                        <th class="border border-black">Nomor Pertandingan yang diikuti</th>
+                        <th class="border border-black">Tahun</th>
+                        <th class="border border-black">Tempat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($single_event as $item)
+                        <tr>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_ajang}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_no_pertandingan}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_tahun}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_tempat}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col-span-3 py-10">
+            <label>Riwayat Prestasi Terbaik (Single Event)</label>
+            <table class="table-auto border-2 border-black w-full">
+                <thead>
+                <tr class="font-bold text-center">
+                    <th class="border border-black">Ajang / Event</th>
+                    <th class="border border-black">Nomor Pertandingan yang diikuti</th>
+                    <th class="border border-black">Tahun</th>
+                    <th class="border border-black">Tempat</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($multi_event as $item)
+                        <tr class="border border-black">
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_ajang}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_no_pertandingan}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_tahun}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_tempat}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
