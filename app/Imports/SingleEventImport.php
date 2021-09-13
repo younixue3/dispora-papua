@@ -14,7 +14,7 @@ class SingleEventImport implements WithMultipleSheets
         return [
             0 => new Sheet3(),
             1 => new Sheet1(),
-            2 => new Sheet2()
+            2 => new Sheet2(),
         ];
     }
 }

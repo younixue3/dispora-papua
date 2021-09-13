@@ -54,6 +54,7 @@ class AtletController extends Controller
     public function store(Request $request)
     {
         if ($this->data->store_data($request)) {
+            Session::forget('no_ktp');
             return redirect()->route('atlet.add')->with('success', 'sukses');
         }
         return redirect()->back()->with('error', 'gagal');

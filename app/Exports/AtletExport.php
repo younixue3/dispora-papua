@@ -14,7 +14,10 @@ class AtletExport implements FromCollection
     */
     public function collection()
     {
-//        dd(Atlet::all());
-        return Atlet::all();
+//        dd(request('search'));
+        if(request('search') != 'Semua') {
+            return Atlet::where('npci_kota_kabupaten', 'like', '%'. request('search') .'%')->get();
+        }
+        return Atlet::get();
     }
 }

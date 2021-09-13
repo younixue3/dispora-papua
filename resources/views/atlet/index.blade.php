@@ -7,7 +7,22 @@
                <a href="{{route('atlet.add')}}" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Tambah</span></a>
             </div>
             <div class="w-full text-right">
-                <a href="{{route('atlet.export')}}" class="inline-block bg-purple-500 hover:bg-purple-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Export</span></a>
+                <form action="{{route('atlet.export')}}" class="flex">
+                    <select name="search" class="flex-1 block w-full rounded-xl focus:outline-none px-3 py-2 border border-gray-300">
+                        <option>Semua</option>
+                        <option>Kabupaten Berau</option>
+                        <option>Kabupaten Kutai Barat</option>
+                        <option>Kabupaten Kutai Kartanegara</option>
+                        <option>Kabupaten Kutai Timur</option>
+                        <option>Kabupaten Mahakam Ulu</option>
+                        <option>Kabupaten Paser</option>
+                        <option>Kabupaten Penajam Paser Utara</option>
+                        <option>Kota Balikpapan</option>
+                        <option>Kota Bontang</option>
+                        <option>Kota Samarinda</option>
+                    </select>
+                    <button type="submit" class="inline-block bg-purple-500 hover:bg-purple-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Export</span></button>
+                </form>
                 <form action="{{route('atlet.index')}}">
                     <div class="flex rounded-md rounded-r-xl shadow-sm border shadow-xl my-2">
                         <input type="text" name="search" class="flex-1 block rounded-l-xl focus:outline-none g px-3 py-1" placeholder="Cari Atlet">
