@@ -6,9 +6,9 @@
             <div class="w-full text-left">
                <a href="{{route('atlet.add')}}" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Tambah</span></a>
             </div>
-            <div class="w-full text-right">
-                <form action="{{route('atlet.export')}}" class="flex">
-                    <select name="search" class="flex-1 block w-full rounded-xl focus:outline-none px-3 py-2 border border-gray-300">
+            <div class="w-full">
+                <form action="{{route('atlet.export')}}" class="flex justify-end space-x-2">
+                    <select name="search" class="block rounded-xl focus:outline-none px-1 border border-gray-300">
                         <option>Semua</option>
                         <option>Kabupaten Berau</option>
                         <option>Kabupaten Kutai Barat</option>

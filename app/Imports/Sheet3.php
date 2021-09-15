@@ -74,7 +74,52 @@ class Sheet3 implements WithMappedCells, ToModel
 
     public function model(array $row)
     {
-//        dd($row['cabang_olahraga']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Session::put('no_ktp', $row['no_ktp']);
         return new Atlet([
             'nama_lengkap' => $row['nama_lengkap'],

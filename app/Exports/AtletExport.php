@@ -3,21 +3,34 @@
 namespace App\Exports;
 
 use App\Models\Atlet;
-use App\Models\SingleEvent;
-use App\Models\MultiEvent;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
 
-class AtletExport implements FromCollection
+class AtletExport implements FromView
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    public function view(): View
     {
-//        dd(request('search'));
-        if(request('search') != 'Semua') {
-            return Atlet::where('npci_kota_kabupaten', 'like', '%'. request('search') .'%')->get();
-        }
-        return Atlet::get();
+        return view('atlet/output/export', [
+            'atlet' => Atlet::all()
+        ]);
     }
 }
+
+//class AtletExport implements FromView
+//{
+//    public function view(): View
+//    {
+////        dd(Atlet::all());
+//        return view('atlet/output/export', [
+//            'atlet' => Atlet::all()
+//        ]);
+//    }
+//    public function collection()
+//    {
+////        dd(request('search'));
+//        if(request('search') != 'Semua') {
+//            return Atlet::where('npci_kota_kabupaten', 'like', '%'. request('search') .'%')->get();
+//        }
+//        return Atlet::get();
+//    }
+//}
