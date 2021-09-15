@@ -23,6 +23,7 @@ Route::group(['prefix' => 'atlet'], function () {
     Route::post('/store', [AtletController::class, 'store'])->name('atlet.store');
     Route::get('/export', [AtletController::class, 'export'])->name('atlet.export');
     Route::get('/export_atlet/{id}', [AtletController::class, 'export_atlet'])->name('atlet.export_atlet');
+    Route::get('/download', [AtletController::class, 'download'])->name('atlet.download');
 });
 
 Route::get('/logout', function() {

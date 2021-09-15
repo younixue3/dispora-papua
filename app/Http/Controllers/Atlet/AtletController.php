@@ -121,4 +121,15 @@ class AtletController extends Controller
     {
         //
     }
+
+    public function download()
+    {
+        $file = public_path(). "/format_biodata.xlsx";
+
+        $headers = array(
+            'Content-Type: application/vnd.ms-excel',
+        );
+
+        return response()->download($file, 'format_biodata.xlsx', $headers);
+    }
 }

@@ -5,6 +5,7 @@
         <div class="mb-2 flex">
             <div class="w-full text-left">
                <a href="{{route('atlet.add')}}" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Tambah</span></a>
+               <a href="{{route('atlet.download')}}" class="bg-yellow-500 hover:bg-yellow-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Download Format</span></a>
             </div>
             <div class="w-full">
                 <form action="{{route('atlet.export')}}" class="flex justify-end space-x-2">
