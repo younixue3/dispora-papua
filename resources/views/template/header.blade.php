@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <script src="https://kit.fontawesome.com/6fd3995802.js" crossorigin="anonymous"></script>
-    <script src="../public/js/chartsjs/chart.js"></script>
+{{--    <script src="../public/js/chartsjs/chart.js"></script>--}}
 </head>
 <body>
 <!-- Header -->
@@ -15,7 +15,7 @@
     <div id="mobile-menu"
          class="h-full md:h-auto text-gray-800 z-50 fixed w-0 md:w-11 lg:w-80 md:hover:w-80 duration-300 bg-gray-100 shadow-md md:static overflow-hidden md:overflow-none">
         <div class="font-bold text-xl h-16 pr-2 md:pr-0 overflow-hidden truncate flex">
-            <img class="min-h-5 h-5 mx-3 my-auto" src="../public/img/path4979.png" alt="">
+{{--            <img class="min-h-5 h-5 mx-3 my-auto" src="../public/img/path4979.png" alt="">--}}
             <span class="ml-4 my-auto text-2xl align-middle font-light">
                     RDeveloper
             </span>

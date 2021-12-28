@@ -22,3 +22,5 @@
 </body>
 </html>
 <script src="{{asset('js/rdev.js')}}"></script>
+<script src="{{asset('js/chart.js')}}"></script>
+@yield('script')

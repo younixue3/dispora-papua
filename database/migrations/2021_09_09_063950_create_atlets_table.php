@@ -57,7 +57,7 @@ class CreateAtletsTable extends Migration
             $table->string('pendidikan_kuliah', 32);
             $table->string('jurusan_kuliah', 32);
             $table->string('periode_kuliah', 22);
-            $table->string('cabang_olahraga', 20);
+            $table->bigInteger('id_cabang_olahraga');
             $table->string('kelas_klasifikasi_cabor', 20);
             $table->string('status_klasifikasi');
             $table->string('status_prestasi_atlet');

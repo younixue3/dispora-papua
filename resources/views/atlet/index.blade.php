@@ -4,7 +4,7 @@
     <div class="bg-white shadow-lg border rounded-xl p-5">
         <div class="mb-2 flex">
             <div class="w-full text-left">
-               <a href="{{route('atlet.add')}}" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Tambah</span></a>
+               <a href="{{route('atlet.form_add')}}" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Tambah</span></a>
                <a href="{{route('atlet.download')}}" class="bg-yellow-500 hover:bg-yellow-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Download Format</span></a>
             </div>
             <div class="w-full">

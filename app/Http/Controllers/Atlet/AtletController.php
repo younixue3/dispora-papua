@@ -45,6 +45,11 @@ class AtletController extends Controller
         return view('atlet/add');
     }
 
+    public function formCreate()
+    {
+        return view('atlet/add_form');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

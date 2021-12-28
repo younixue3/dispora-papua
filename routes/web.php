@@ -20,7 +20,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'atlet'], function () {
     Route::get('/', [AtletController::class, 'index'])->name('atlet.index');
     Route::get('/add', [AtletController::class, 'create'])->name('atlet.add');
+    Route::get('/form/add', [AtletController::class, 'formCreate'])->name('atlet.form_add');
     Route::post('/store', [AtletController::class, 'store'])->name('atlet.store');
+    Route::post('/form/store', [AtletController::class, 'store'])->name('atlet.form_store');
     Route::get('/export', [AtletController::class, 'export'])->name('atlet.export');
     Route::get('/export_atlet/{id}', [AtletController::class, 'export_atlet'])->name('atlet.export_atlet');
     Route::get('/download', [AtletController::class, 'download'])->name('atlet.download');
