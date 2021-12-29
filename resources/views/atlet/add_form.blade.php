@@ -297,6 +297,90 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Cabang Olahraga</label>
+                    <div>
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="cabor">
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Kelas Klasifikasi Cabor</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="kelas_klafisikasi_cabor">
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Status klasifikasi</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="status_klasifikasi">
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Status Prestasi Atlet</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="status_prestasi_atlet">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 w-1/2">
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Riwayat klasifikasi</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="riwayat_klasifikasi">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Tahun klafisilasi</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_klasifikasi">
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 w-1/2">
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Riwayat kesehatan & cedera</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="riwayat_kesehatan_cedera">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Tahun Checkup</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_checkup">
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2 w-1/2">
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Vaksinasi Covid-19</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="vaksin_covid">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Tanggal vaksin Kedua</label>
+                        <div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tgl_vaksin_kedua">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Riwayat disabilitas</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="riwayat_disabilitas">
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Alat bantu disabilitas</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="alat_bantu_disabilitas">
+                    </div>
+                </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">Jenis disabilitas</label>
+                    <div>
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="jenis_disabilitas">
+                    </div>
+                </div>
             </div>
             <div class="mt-10">
                 <input type="submit" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1" value="Submit">
