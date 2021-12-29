@@ -236,18 +236,18 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2 w-1/2">
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Pendidikan SD/SLB</label>
                         <div>
-                            <label class="font-semibold pl-2 text-gray-500">Pendidikan SD/SLB</label>
-                            <div>
-                                <input class="border-2 w-full rounded-lg px-2 py-1" name="pendidikan_sd">
-                            </div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="pendidikan_sd">
                         </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold pl-2 text-gray-500">Tahun lulus</label>
                         <div>
-                            <label class="font-semibold pl-2 text-gray-500">Tahun lulus</label>
-                            <div>
-                                <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_lulus_sd">
-                            </div>
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_lulus_sd">
                         </div>
+                    </div>
                 </div>
                 <div class="grid grid-cols-2 gap-2 w-1/2">
                     <div>
@@ -383,8 +383,11 @@
                 </div>
             </div>
             <div class="mt-10">
-                <input type="submit" class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1" value="Submit">
-                <a href="{{route('atlet.index')}}" class="bg-red-500 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1">Cancel</a>
+                <input type="submit"
+                       class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
+                       value="Submit">
+                <a href="{{route('atlet.index')}}"
+                   class="bg-red-500 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1">Cancel</a>
             </div>
         </form>
     </div>
