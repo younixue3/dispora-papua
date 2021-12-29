@@ -403,7 +403,7 @@
                                     </th>
                                 </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
+                                <tbody id="app" class="bg-white divide-y divide-gray-200">
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <input type="text" placeholder="Ajang / Event">
@@ -434,4 +434,15 @@
             </div>
         </form>
     </div>
+@endsection
+@section('script')
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                add
+            }
+        })
+    </script>
 @endsection
