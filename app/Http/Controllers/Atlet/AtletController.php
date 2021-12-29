@@ -65,6 +65,14 @@ class AtletController extends Controller
         return redirect()->back()->with('error', 'gagal');
     }
 
+    public function form_store(Request $request)
+    {
+        if ($this->data->form_store_data($request)) {
+            return redirect()->route('atlet.add')->with('success', 'sukses');
+        }
+        return redirect()->back()->with('error', 'gagal');
+    }
+
     public function export(Request $request)
     {
 //        return Excel::import([AtletImport::class, 'SingleEventExport'], public_path('/DataAtlet/atlet.xlsx'));;
