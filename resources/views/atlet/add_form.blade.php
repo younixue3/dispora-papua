@@ -201,23 +201,6 @@
                         <input class="border-2 w-1/12 rounded-lg px-2 py-1" name="gol_darah">
                     </div>
                 </div>
-                <div>
-                    <label class="font-semibold pl-2 text-gray-500">Jenis kelamin</label>
-                    <div>
-                        <span>
-                        <label class="font-semibold pl-2 text-gray-500">Terbit</label>
-                            <div>
-                                <input class="border-2 rounded-lg px-2 py-1" name="passport_terbit">
-                            </div>
-                        </span>
-                        <span>
-                        <label class="font-semibold pl-2 text-gray-500">Terbit</label>
-                            <div>
-                                <input class="border-2 rounded-lg px-2 py-1" name="passport_terbit">
-                            </div>
-                        </span>
-                    </div>
-                </div>
                 <div class="w-1/2">
                     <label class="font-semibold pl-2 text-gray-500">Nomor Passport</label>
                     <div class="grid grid-cols-2 gap-2">
@@ -435,7 +418,7 @@
                 </div>
             </div>
             <div class="mt-10">
-                <input type="submit"
+                <input id="submit_storage" type="submit"
                        class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
                        value="Submit">
                 <a href="{{route('atlet.index')}}"
@@ -446,10 +429,15 @@
 @endsection
 @section('script')
     <script>
+        const arr = {data: {atlet: null, sevent: [], mevent: []}}
+        var counter = 1;
+        var status = 1;
+
         $(document).ready(function () {
             i = 1;
             $('#add_event').click(function () {
                 i++;
+                counter = i
                 $('#table_event').append('<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nama_sevent_' + i + '" type="text" placeholder="Ajang / Event"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nomor_pertandingan_sevent_' + i + '" type="text" placeholder="Nomor pertandingan yang diikuti"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tahun_sevent_' + i + '" type="text" placeholder="Tahun"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tempat_sevent_' + i + '" type="text" placeholder="Tempat"></td></tr>')
             });
         });
@@ -458,9 +446,11 @@
             if (status == 1) {
                 console.log(counter);
                 for (var i = 1; ; i++) {
-                    arr.data.anggota.push({
-                        name: $('#array-nama-anggota' + i).val(),
-                        email: $('#array-email-anggota' + i).val()
+                    arr.data.sevent.push({
+                        nama_event: $('#nama_sevent_' + i).val(),
+                        nomor_pertandingan_event: $('#nomor_pertandingan_sevent_' + i).val(),
+                        tahun_sevent: $('#tahun_sevent_' + i).val(),
+                        tempat_sevent: $('#tempat_sevent_' + i).val()
                     })
                     if (i == counter) break;
                 }
@@ -470,16 +460,14 @@
             }
             $.ajax({
                 type: "POST",
-                url: window.location.origin + '/daftar/insert',
+                url: window.location.origin + 'atlet/form/store',
                 data: {
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    event_id: $('#event_id').val(),
-                    provinsi_id: $('#provinsi').val(),
-                    kota_kab_id: $('#kota_kab').val(),
-                    password: $('#password').val(),
-                    kategori_peserta: $(".radio-choose:checked").val(),
-                    jenjang: $('#jenjang').val()
+                    name_lengkap: $('#name_lengkap').val(),
+                    kartu_keluarga: $('#kartu_keluarga').val(),
+                    ktp: $('#ktp').val(),
+                    tahun_npc: $('#tahun_npc'),
+                    npci_kota_kab: $('#npci_kota_kab').val(),
+
                 },
                 success: function (data) {
                     arr.data.kelompok = data;
