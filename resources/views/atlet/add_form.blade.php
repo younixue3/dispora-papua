@@ -389,16 +389,20 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ajang / Event
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Nomor pertandingan yang diikuti
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Tahun
                                     </th>
-                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Tempat
                                     </th>
                                 </tr>
@@ -409,20 +413,24 @@
                                         <input id="nama_sevent_1" type="text" placeholder="Ajang / Event">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input id="nomor_pertandingan_sevent_1" type="text" placeholder="Nomor pertandingan yang diikuti">
+                                        <input id="nomor_pertandingan_sevent_1" type="text"
+                                               placeholder="Nomor pertandingan yang diikuti">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         <input id="tahun_sevent_1" type="text" placeholder="Tahun">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input  id="tempat_sevent_1"type="text" placeholder="Tempat">
+                                        <input id="tempat_sevent_1" type="text" placeholder="Tempat">
                                     </td>
                                 </tr>
                                 <!-- More people... -->
                                 </tbody>
                             </table>
                         </div>
-                        <button type="button" class="bg-red-500 mt-5 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1 float-right" id="add_event">add</button>
+                        <button type="button"
+                                class="bg-red-500 mt-5 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1 float-right"
+                                id="add_event">add
+                        </button>
                     </div>
                 </div>
             </div>
@@ -438,7 +446,7 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             i = 1;
             $('#add_event').click(function () {
                 i++;
@@ -450,7 +458,10 @@
             if (status == 1) {
                 console.log(counter);
                 for (var i = 1; ; i++) {
-                    arr.data.anggota.push({name: $('#array-nama-anggota' + i).val(), email: $('#array-email-anggota' + i).val()})
+                    arr.data.anggota.push({
+                        name: $('#array-nama-anggota' + i).val(),
+                        email: $('#array-email-anggota' + i).val()
+                    })
                     if (i == counter) break;
                 }
                 status = 0;
@@ -460,8 +471,17 @@
             $.ajax({
                 type: "POST",
                 url: window.location.origin + '/daftar/insert',
-                data: {name:$('#name').val(),email:$('#email').val(),event_id:$('#event_id').val(),provinsi_id:$('#provinsi').val(),kota_kab_id:$('#kota_kab').val(),password:$('#password').val(), kategori_peserta:$(".radio-choose:checked").val(), jenjang:$('#jenjang').val()},
-                success: function(data) {
+                data: {
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    event_id: $('#event_id').val(),
+                    provinsi_id: $('#provinsi').val(),
+                    kota_kab_id: $('#kota_kab').val(),
+                    password: $('#password').val(),
+                    kategori_peserta: $(".radio-choose:checked").val(),
+                    jenjang: $('#jenjang').val()
+                },
+                success: function (data) {
                     arr.data.kelompok = data;
                     $.ajax({
                         type: "POST",
