@@ -14,13 +14,13 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">No. Kartu Keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_kartu_keluarga">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">No. KTP</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="ktp">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_ktp">
                     </div>
                 </div>
                 <div>
@@ -463,10 +463,21 @@
                 url: window.location.origin + 'atlet/form/store',
                 data: {
                     name_lengkap: $('#name_lengkap').val(),
-                    kartu_keluarga: $('#kartu_keluarga').val(),
-                    ktp: $('#ktp').val(),
+                    no_kartu_keluarga: $('#no_kartu_keluarga').val(),
+                    no_ktp: $('#no_ktp').val(),
                     tahun_npc: $('#tahun_npc'),
                     npci_kota_kab: $('#npci_kota_kab').val(),
+                    npci_provinsi: $('#npci_provinsi').val(),
+                    kartu_keluarga: $('#kartu_keluarga').val(),
+                    ktp: $('#ktp').val(),
+                    pas_foto: $('#pas_foto').val(),
+                    no_hp: $('#no_hp').val(),
+                    email: $('#email').val(),
+                    tempat_lahir: $('#tempat_lahir').val(),
+                    tanggal_lahir: $('#tanggal_lahir').val(),
+                    agama: $('#agama').val(),
+                    pernikahan: $('#pernikahan').val(),
+                    jenis_kelamin: $('#jenis_kelamin').
 
                 },
                 success: function (data) {
