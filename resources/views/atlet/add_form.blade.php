@@ -403,25 +403,26 @@
                                     </th>
                                 </tr>
                                 </thead>
-                                <tbody id="app" class="bg-white divide-y divide-gray-200">
+                                <tbody id="table_event" class="bg-white divide-y divide-gray-200">
                                 <tr>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input type="text" placeholder="Ajang / Event">
+                                        <input id="nama_sevent_1" type="text" placeholder="Ajang / Event">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input type="text" placeholder="Nomor pertandingan yang diikuti">
+                                        <input id="nomor_pertandingan_sevent_1" type="text" placeholder="Nomor pertandingan yang diikuti">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input type="text" placeholder="Tahun">
+                                        <input id="tahun_sevent_1" type="text" placeholder="Tahun">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        <input type="text" placeholder="Tempat">
+                                        <input  id="tempat_sevent_1"type="text" placeholder="Tempat">
                                     </td>
                                 </tr>
                                 <!-- More people... -->
                                 </tbody>
                             </table>
                         </div>
+                        <button type="button" class="bg-red-500 mt-5 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1 float-right" id="add_event">add</button>
                     </div>
                 </div>
             </div>
@@ -436,13 +437,41 @@
     </div>
 @endsection
 @section('script')
-    <script type="text/javascript">
-        var app = new Vue({
-            el: '#app',
-            data: {},
-            methods: {
-                add
+    <script>
+        $(document).ready(function(){
+            i = 1;
+            $('#add_event').click(function () {
+                i++;
+                $('#table_event').append('<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nama_sevent_' + i + '" type="text" placeholder="Ajang / Event"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nomor_pertandingan_sevent_' + i + '" type="text" placeholder="Nomor pertandingan yang diikuti"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tahun_sevent_' + i + '" type="text" placeholder="Tahun"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tempat_sevent_' + i + '" type="text" placeholder="Tempat"></td></tr>')
+            });
+        });
+
+        $('#submit_storage').click(function () {
+            if (status == 1) {
+                console.log(counter);
+                for (var i = 1; ; i++) {
+                    arr.data.anggota.push({name: $('#array-nama-anggota' + i).val(), email: $('#array-email-anggota' + i).val()})
+                    if (i == counter) break;
+                }
+                status = 0;
+            } else {
+                alert("data anda telah di input")
             }
-        })
+            $.ajax({
+                type: "POST",
+                url: window.location.origin + '/daftar/insert',
+                data: {name:$('#name').val(),email:$('#email').val(),event_id:$('#event_id').val(),provinsi_id:$('#provinsi').val(),kota_kab_id:$('#kota_kab').val(),password:$('#password').val(), kategori_peserta:$(".radio-choose:checked").val(), jenjang:$('#jenjang').val()},
+                success: function(data) {
+                    arr.data.kelompok = data;
+                    $.ajax({
+                        type: "POST",
+                        url: window.location.origin + '/daftar/anggota',
+                        data: arr
+                    });
+                }
+            });
+            console.log(arr.data.kelompok)
+
+        });
     </script>
 @endsection
