@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <script src="https://kit.fontawesome.com/6fd3995802.js" crossorigin="anonymous"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 {{--    <script src="../public/js/chartsjs/chart.js"></script>--}}
 </head>
 <body>

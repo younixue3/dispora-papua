@@ -65,8 +65,9 @@ class AtletController extends Controller
         return redirect()->back()->with('error', 'gagal');
     }
 
-    public function form_store(Request $request)
+    public function simpan(Request $request)
     {
+        return $request;
         if ($this->data->form_store_data($request)) {
             return redirect()->route('atlet.add')->with('success', 'sukses');
         }
