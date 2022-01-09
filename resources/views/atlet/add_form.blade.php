@@ -14,7 +14,8 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">No. Kartu Keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_kartu_keluarga" id="no_kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_kartu_keluarga"
+                               id="no_kartu_keluarga">
                     </div>
                 </div>
                 <div>
@@ -44,7 +45,8 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Kartu keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga" id="kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga"
+                               id="kartu_keluarga">
                     </div>
                 </div>
                 <div>
@@ -75,7 +77,8 @@
                     <label class="font-semibold pl-2 text-gray-500">Tempat, tanggal lahir</label>
                     <div>
                         <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tempat_lahir" id="tempat_lahir">
-                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" id="tanggal_lahir" type="date">
+                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" id="tanggal_lahir"
+                               type="date">
                     </div>
                 </div>
                 <div>
@@ -103,7 +106,7 @@
                     <label class="font-semibold pl-2 text-gray-500">Jenis kelamin</label>
                     <div>
                         <span>
-                        <input type="radio" name="jenis_kelamin" value="lakiLaki">
+                            <input type="radio" name="jenis_kelamin" value="lakiLaki">
                             <label>Laki-laki</label>
                         </span>
                         <span>
