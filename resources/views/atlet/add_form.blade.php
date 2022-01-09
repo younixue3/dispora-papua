@@ -2,97 +2,101 @@
 @section('title', 'Page')
 @section('content')
     <div class="bg-white shadow-lg border rounded-xl p-5">
-        <form action="{{route('atlet.form_store')}}" method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data">
             @csrf
             <div class="grid grid-cols-1 gap-y-2">
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Nama Lengkap</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="nama_lengkap">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="nama_lengkap" id="nama_lengkap">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">No. Kartu Keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_kartu_keluarga" id="no_kartu_keluarga">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">No. KTP</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_ktp">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_ktp" id="no_ktp">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Tahun Bergabung NPC</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="tahun_npc">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="tahun_npc" id="tahun_npc">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">NPCI KOTA / KABUPATEN</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="npci_kota_kab">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="npci_kota_kab" id="npci_kota_kab">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">NPCI PROVINSI</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="npci_provinsi">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="npci_provinsi" id="npci_provinsi">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Kartu keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga" id="kartu_keluarga">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">KTP</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="ktp">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="ktp" id="ktp">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Pas Foto</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="pas_foto">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="pas_foto" id="pas_foto">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Nomor handphone</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_hp">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_hp" id="no_hp">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">E-mail</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="email">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="email" id="email">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Tempat, tanggal lahir</label>
                     <div>
-                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tempat_lahir">
-                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" type="date">
+                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tempat_lahir" id="tempat_lahir">
+                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" id="tanggal_lahir" type="date">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Agama</label>
                     <div>
-                        <select class="border-2 w-1/5 rounded-lg px-2 py-1" name="agama">
+                        <select class="border-2 w-1/5 rounded-lg px-2 py-1" name="agama" id="agama">
                             <option selected disabled>Pilih agama</option>
-                            <option>Islam</option>
-                            <option>Kristen</option>
-                            <option>Katolik</option>
+                            <option value="islam">Islam</option>
+                            <option value="kristen">Kristen</option>
+                            <option value="katolik">Katolik</option>
                         </select>
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Status pernikahan</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="pernikahan">
+                        <select class="border-2 w-1/2 rounded-lg px-2 py-1" name="pernikahan" id="pernikahan">
+                            <option selected disabled>Pilih satus pernikahan</option>
+                            <option value="belum menikah">Belum menikah</option>
+                            <option value="menikah">Menikah</option>
+                        </select>
                     </div>
                 </div>
                 <div>
@@ -477,15 +481,61 @@
                     tanggal_lahir: $('#tanggal_lahir').val(),
                     agama: $('#agama').val(),
                     pernikahan: $('#pernikahan').val(),
-                    jenis_kelamin: $('#jenis_kelamin').
-
+                    jenis_kelamin: $('#jenis_kelamin'),
+                    pekerjaan: $('#pekerjaan'),
+                    alamat: $('#alamat'),
+                    rt_rw: $('#rt_rw'),
+                    kecamatan: $('#kecamatan'),
+                    kabupaten: $('#kabupaten'),
+                    provinsi: $('#provinsi'),
+                    kode_pos: $('#kode_pos'),
+                    hobi: $('#hobi'),
+                    tinggi_badan: $('#tinggi_badan'),
+                    berat_badan: $('#berat_badan'),
+                    ukuran_baju: $('#ukuran_baju'),
+                    ukuran_celana: $('#ukuran_celana'),
+                    ukuran_sepatu: $('#ukuran_sepatu'),
+                    gol_darah: $('#gol_darah'),
+                    passport_terbit: $('#passport_terbit'),
+                    passport_kadaluwarsa: $('#passport_kadaluwarsa'),
+                    pendidikan_sd: $('#pendidikan_sd'),
+                    tahun_lulus_sd: $('#tahun_lulus_sd'),
+                    pendidikan_smp: $('#pendidikan_smp'),
+                    tahun_lulus_smp: $('#tahun_lulus_smp'),
+                    pendidikan_sma: $('#pendidikan_sma'),
+                    tahun_lulus_sma: $('#tahun_lulus_sma'),
+                    pendidikan_kuliah: $('#pendidikan_kuliah'),
+                    jurusan_kuliah: $('#jurusan_kuliah'),
+                    periode_kuliah: $('#periode_kuliah'),
+                    cabor: $('#cabor'),
+                    kelas_klasifikasi_cabor: $('#kelas_klasifikasi_cabor'),
+                    status_klasifikasi: $('#status_klasifikasi'),
+                    status_prestasi_atlet: $('#status_prestasi_atlet'),
+                    riwayat_klasifikasi: $('#riwayat_klasifikasi'),
+                    tahun_klasifikasi: $('#tahun_klasifikasi'),
+                    riwayat_kesehatan_cedera: $('#riwayat_kesehatan_cedera'),
+                    tahun_checkup: $('#tahun_checkup'),
+                    vaksin_covid: $('#vaksin_covid'),
+                    tgl_vaksin_kedua: $('#tgl_vaksin_kedua'),
+                    riwayat_disabilitas: $('#riwayat_disabilitas'),
+                    alat_bantu_disabilitas: $('#alat_bantu_disabilitas'),
+                    jenis_disabilitas: $('#jenis_disabilitas'),
+                },
+                error: function (e) {
+                    console.log(e)
                 },
                 success: function (data) {
-                    arr.data.kelompok = data;
+                    arr.data.atlet = data;
                     $.ajax({
                         type: "POST",
                         url: window.location.origin + '/daftar/anggota',
-                        data: arr
+                        data: arr,
+                        error: function (e) {
+                            console.log(e)
+                        },
+                        success: function (data) {
+                            console.log(data)
+                        }
                     });
                 }
             });
