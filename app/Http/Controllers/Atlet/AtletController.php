@@ -67,11 +67,13 @@ class AtletController extends Controller
 
     public function simpan(Request $request)
     {
-        return $request;
-        if ($this->data->form_store_data($request)) {
-            return redirect()->route('atlet.add')->with('success', 'sukses');
-        }
-        return redirect()->back()->with('error', 'gagal');
+        return response($request);
+//        $return = $this
+//        if ($this->data->form_store_data($request)) {
+            return $this->data->form_store_data($request);
+//            return redirect()->route('atlet.add')->with('success', 'sukses');
+//        }
+//        return redirect()->back()->with('error', 'gagal');
     }
 
     public function export(Request $request)

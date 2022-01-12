@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Atlet\Data;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use Session;
+use Session, Storage;
 
 use App\Models\Atlet;
 use App\Models\MultiEvent;
@@ -40,7 +40,71 @@ class AtletController extends Controller
 
     public function form_store_data(Request $request)
     {
-        dd($request);
+        return response($request);
+        $filename_kk = today()->format('Y-m-d') . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('kartu_keluarga', $request->foto_poster, $filename_kk);
+        $filename_ktp = today()->format('Y-m-d') . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('ktp', $request->foto_poster, $filename_ktp);
+        $filename_pasfoto = today()->format('Y-m-d') . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('pas_foto', $request->foto_poster, $filename_pasfoto);
+        $atlet = Atlet::create([
+            'nama_lengkap' => $request->nama_lengkap,
+            'no_kartu_keluarga' => $request->no_kartu_keluarga,
+            'no_ktp' => $request->no_ktp,
+            'tahun_bergabung_npc' => $request->tahun_npc,
+            'npci_kota_kabupaten' => $request->npci_kota_kab,
+            'npci_provinsi' => $request->npci_provinsi,
+            'link_kartu_keluarga' => $filename_kk,
+            'link_ktp' => $filename_ktp,
+            'link_pas_foto' => $filename_pasfoto,
+            'no_handphone' => $request->no_hp,
+            'email_aktif' => $request->email,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'agama' => $request->agama,
+            'status_pernikahan' => $request->pernikahan,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'pekerjaan' => $request->pekerjaan,
+            'alamat' => $request->alamat,
+            'rt_rw' => $request->rt_rw,
+            'alamat_kecamatan' => $request->kecamatan,
+            'alamat_kabupaten' => $request->kabupaten,
+            'alamat_provinsi' => $request->provinsi,
+            'alamat_kode_pos' => $request->kode_pos,
+            'hobi' => $request->hobi,
+            'tinggi_badan' => $request->tinggi_badan,
+            'berat_badan' => $request->berat_badan,
+            'ukuran_baju' => $request->ukuran_baju,
+            'ukuran_celana' => $request->ukuran_celana,
+            'ukuran_sepatu' => $request->ukuran_sepatu,
+            'gol_darah' => $request->gol_darah,
+            'passport_tgl_terbit' => $request->passport_terbit,
+            'passport_tgl_kadaluarsa' => $request->passport_kadaluwarsa,
+            'no_npwp' => $request->no_npwp,
+            'pendidikan_sd' => $request->pendidikan_sd,
+            'tahun_lulus_sd' => $request->tahun_lulus_sd,
+            'pendidikan_smp' => $request->pendidikan_smp,
+            'tahun_lulus_smp' => $request->tahun_lulus_smp,
+            'pendidikan_sma' => $request->pendidikan_sma,
+            'tahun_lulus_sma' => $request->tahun_lulus_sma,
+            'pendidikan_kuliah' => $request->pendidikan_kuliah,
+            'jurusan_kuliah' => $request->jurusan_kuliah,
+            'periode_kuliah' => $request->periode_kuliah,
+            'cabang_olahraga' => $request->cabor,
+            'kelas_klasifikasi_cabor' => $request->kelas_klasifikasi_cabor,
+            'status_klasifikasi' => $request->status_klasifikasi,
+            'status_prestasi_atlet' => $request->status_prestasi_atlet,
+            'riwayat_klasifikasi' => $request->riwayat_klasifikasi,
+            'tahun_klasifikasi' => $request->tahun_klasifikasi,
+            'riwayat_kesehatan_cedera' => $request->riwayat_kesehatan_cedera,
+            'tahun_checkup' => $request->tahun_checkup,
+            'vaksin_cov19' => $request->vaksin_covid,
+            'tgl_vaksin_kedua' => $request->tgl_vaksin_kedua,
+            'riwayat_disabilitas' => $request->riwayat_disabilitas,
+            'alat_bantu_disabilitas' => $request->alat_bantu_disabilitas,
+            'jenis_disabilitas' => $request->jenis_disabilitas,
+        ]);
+        return $atlet->id;
     }
 
     public function get_show_data($id)

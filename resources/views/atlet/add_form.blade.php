@@ -222,6 +222,12 @@
                         </div>
                     </div>
                 </div>
+                <div>
+                    <label class="font-semibold pl-2 text-gray-500">No. NPWP</label>
+                    <div>
+                        <input class="border-2 w-1/12 rounded-lg px-2 py-1" name="no_npwp" id="no_npwp">
+                    </div>
+                </div>
                 <div class="grid grid-cols-2 gap-2 w-1/2">
                     <div>
                         <label class="font-semibold pl-2 text-gray-500">Pendidikan SD/SLB</label>
@@ -260,7 +266,7 @@
                     <div>
                         <label class="font-semibold pl-2 text-gray-500">Tahun lulus</label>
                         <div>
-                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_lulus_sd" id="tahun_lulus_sd">
+                            <input class="border-2 w-full rounded-lg px-2 py-1" name="tahun_lulus_sma" id="tahun_lulus_sma">
                         </div>
                     </div>
                 </div>
@@ -293,7 +299,7 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Kelas Klasifikasi Cabor</label>
                     <div>
-                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="kelas_klafisikasi_cabor" id="kelas_klafisikasi_cabor">
+                        <input class="border-2 w-1/3 rounded-lg px-2 py-1" name="kelas_klafisikasi_cabor" id="kelas_klasifikasi_cabor">
                     </div>
                 </div>
                 <div>
@@ -422,7 +428,7 @@
                 </div>
             </div>
             <div class="mt-10">
-                <input id="submit_storage" type="button"
+                <input id="submit_storage" type="submit"
                        class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
                        value="Submit">
                 <a href="{{route('atlet.index')}}"
@@ -450,80 +456,12 @@
             });
         });
 
-        $('#submit_storage').click(function () {
-            // console.log($('#nama_lengkap').val())
-            // var datanya = {
-            //     name_lengkap: $('#nama_lengkap').val(),
-            //     no_kartu_keluarga: $('#no_kartu_keluarga').val(),
-            //     no_ktp: $('#no_ktp').val(),
-            //     tahun_npc: $('#tahun_npc'),
-            //     npci_kota_kab: $('#npci_kota_kab').val(),
-            //     npci_provinsi: $('#npci_provinsi').val(),
-            //     kartu_keluarga: $('#kartu_keluarga').val(),
-            //     ktp: $('#ktp').val(),
-            //     pas_foto: $('#pas_foto').val(),
-            //     no_hp: $('#no_hp').val(),
-            //     email: $('#email').val(),
-            //     tempat_lahir: $('#tempat_lahir').val(),
-            //     tanggal_lahir: $('#tanggal_lahir').val(),
-            //     agama: $('#agama').val(),
-            //     pernikahan: $('#pernikahan').val(),
-            //     jenis_kelamin: $('#jenis_kelamin'),
-            //     pekerjaan: $('#pekerjaan'),
-            //     alamat: $('#alamat'),
-            //     rt_rw: $('#rt_rw'),
-            //     kecamatan: $('#kecamatan'),
-            //     kabupaten: $('#kabupaten'),
-            //     provinsi: $('#provinsi'),
-            //     kode_pos: $('#kode_pos'),
-            //     hobi: $('#hobi'),
-            //     tinggi_badan: $('#tinggi_badan'),
-            //     berat_badan: $('#berat_badan'),
-            //     ukuran_baju: $('#ukuran_baju'),
-            //     ukuran_celana: $('#ukuran_celana'),
-            //     ukuran_sepatu: $('#ukuran_sepatu'),
-            //     gol_darah: $('#gol_darah'),
-            //     passport_terbit: $('#passport_terbit'),
-            //     passport_kadaluwarsa: $('#passport_kadaluwarsa'),
-            //     pendidikan_sd: $('#pendidikan_sd'),
-            //     tahun_lulus_sd: $('#tahun_lulus_sd'),
-            //     pendidikan_smp: $('#pendidikan_smp'),
-            //     tahun_lulus_smp: $('#tahun_lulus_smp'),
-            //     pendidikan_sma: $('#pendidikan_sma'),
-            //     tahun_lulus_sma: $('#tahun_lulus_sma'),
-            //     pendidikan_kuliah: $('#pendidikan_kuliah'),
-            //     jurusan_kuliah: $('#jurusan_kuliah'),
-            //     periode_kuliah: $('#periode_kuliah'),
-            //     cabor: $('#cabor'),
-            //     kelas_klasifikasi_cabor: $('#kelas_klasifikasi_cabor'),
-            //     status_klasifikasi: $('#status_klasifikasi'),
-            //     status_prestasi_atlet: $('#status_prestasi_atlet'),
-            //     riwayat_klasifikasi: $('#riwayat_klasifikasi'),
-            //     tahun_klasifikasi: $('#tahun_klasifikasi'),
-            //     riwayat_kesehatan_cedera: $('#riwayat_kesehatan_cedera'),
-            //     tahun_checkup: $('#tahun_checkup'),
-            //     vaksin_covid: $('#vaksin_covid'),
-            //     tgl_vaksin_kedua: $('#tgl_vaksin_kedua'),
-            //     riwayat_disabilitas: $('#riwayat_disabilitas'),
-            //     alat_bantu_disabilitas: $('#alat_bantu_disabilitas'),
-            //     jenis_disabilitas: $('#jenis_disabilitas'),
-            // }
-            // console.log(window.location.origin + '/atlet/form/store')
-            // if (status == 1) {
-            //     console.log(counter);
-            //     for (var i = 1; ; i++) {
-            //         arr.data.sevent.push({
-            //             nama_event: $('#nama_sevent_' + i).val(),
-            //             nomor_pertandingan_event: $('#nomor_pertandingan_sevent_' + i).val(),
-            //             tahun_sevent: $('#tahun_sevent_' + i).val(),
-            //             tempat_sevent: $('#tempat_sevent_' + i).val()
-            //         })
-            //         if (i == counter) break;
-            //     }
-            //     status = 0;
-            // } else {
-            //     alert("data anda telah di input")
-            // }
+        var form = new FormData();
+        form.append('name_lengkap', $('#nama_lengkap').val())
+        form.append('no_kartu_keluarga', $('#no_kartu_keluarga').val())
+
+        $('#form').on('submit', function (event) {
+            event.preventDefault();
             $.ajax({
                 type: "POST",
                 url: window.location.origin + '/atlet/form/store',
@@ -536,7 +474,7 @@
                     npci_kota_kab: $('#npci_kota_kab').val(),
                     npci_provinsi: $('#npci_provinsi').val(),
                     kartu_keluarga: $('#kartu_keluarga').val(),
-                    ktp: $('#ktp').val(),
+                    ktp: $('#ktp').html(data.),
                     pas_foto: $('#pas_foto').val(),
                     no_hp: $('#no_hp').val(),
                     email: $('#email').val(),
@@ -546,12 +484,12 @@
                     pernikahan: $('#pernikahan').val(),
                     jenis_kelamin: $('.jenis_kelamin:checked').val(),
                     pekerjaan: $('#pekerjaan').val(),
-                    alamat: $('#alamat').val(),
-                    rt_rw: $('#rt_rw').val(),
-                    kecamatan: $('#kecamatan').val(),
-                    kabupaten: $('#kabupaten').val(),
-                    provinsi: $('#provinsi').val(),
-                    kode_pos: $('#kode_pos').val(),
+                    alamat: $('#alamat_jalan').val(),
+                    rt_rw: $('#alamat_rt_rw').val(),
+                    kecamatan: $('#alamat_kecamatan').val(),
+                    kabupaten: $('#alamat_kabupatan').val(),
+                    provinsi: $('#alamat_provinsi').val(),
+                    kode_pos: $('#alamat_kode_pos').val(),
                     hobi: $('#hobi').val(),
                     tinggi_badan: $('#tinggi_badan').val(),
                     berat_badan: $('#berat_badan').val(),
@@ -561,6 +499,7 @@
                     gol_darah: $('#gol_darah').val(),
                     passport_terbit: $('#passport_terbit').val(),
                     passport_kadaluwarsa: $('#passport_kadaluwarsa').val(),
+                    no_npwp: $('#no_npwp').val(),
                     pendidikan_sd: $('#pendidikan_sd').val(),
                     tahun_lulus_sd: $('#tahun_lulus_sd').val(),
                     pendidikan_smp: $('#pendidikan_smp').val(),
@@ -591,18 +530,18 @@
                 success: function (data) {
                     // console.log('berhasil')
                     console.log(data)
-                    arr.data.atlet = data;
-                    $.ajax({
-                        type: "POST",
-                        url: window.location.origin + '/daftar/anggota',
-                        data: arr,
-                        error: function (e) {
-                            console.log(e)
-                        },
-                        success: function (data) {
-                            console.log(data)
-                        }
-                    });
+                    // arr.data.atlet = data;
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: window.location.origin + '/daftar/anggota',
+                    //     data: arr,
+                    //     error: function (e) {
+                    //         console.log(e)
+                    //     },
+                    //     success: function (data) {
+                    //         console.log(data)
+                    //     }
+                    // });
                 }
             });
             console.log(arr.data.kelompok)
