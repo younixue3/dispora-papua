@@ -531,17 +531,17 @@
                     // console.log('berhasil')
                     console.log(data)
                     // arr.data.atlet = data;
-                    // $.ajax({
-                    //     type: "POST",
-                    //     url: window.location.origin + '/daftar/anggota',
-                    //     data: arr,
-                    //     error: function (e) {
-                    //         console.log(e)
-                    //     },
-                    //     success: function (data) {
-                    //         console.log(data)
-                    //     }
-                    // });
+                    $.ajax({
+                        type: "POST",
+                        url: window.location.origin + '/daftar/anggota',
+                        data: arr,
+                        error: function (e) {
+                            console.log(e)
+                        },
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    });
                 }
             });
             console.log(arr.data.kelompok)
