@@ -40,13 +40,6 @@ class AtletController extends Controller
 
     public function form_store_data(Request $request)
     {
-        return response($request);
-        $filename_kk = today()->format('Y-m-d') . rand('00000','99999').'.png';
-        Storage::disk('upload')->putFileAs('kartu_keluarga', $request->foto_poster, $filename_kk);
-        $filename_ktp = today()->format('Y-m-d') . rand('00000','99999').'.png';
-        Storage::disk('upload')->putFileAs('ktp', $request->foto_poster, $filename_ktp);
-        $filename_pasfoto = today()->format('Y-m-d') . rand('00000','99999').'.png';
-        Storage::disk('upload')->putFileAs('pas_foto', $request->foto_poster, $filename_pasfoto);
         $atlet = Atlet::create([
             'nama_lengkap' => $request->nama_lengkap,
             'no_kartu_keluarga' => $request->no_kartu_keluarga,
@@ -54,9 +47,9 @@ class AtletController extends Controller
             'tahun_bergabung_npc' => $request->tahun_npc,
             'npci_kota_kabupaten' => $request->npci_kota_kab,
             'npci_provinsi' => $request->npci_provinsi,
-            'link_kartu_keluarga' => $filename_kk,
-            'link_ktp' => $filename_ktp,
-            'link_pas_foto' => $filename_pasfoto,
+            'link_kartu_keluarga' => $request->kartu_keluarga,
+            'link_ktp' => $request->ktp,
+            'link_pas_foto' => $request->pas_foto,
             'no_handphone' => $request->no_hp,
             'email_aktif' => $request->email,
             'tempat_lahir' => $request->tempat_lahir,
@@ -105,6 +98,19 @@ class AtletController extends Controller
             'jenis_disabilitas' => $request->jenis_disabilitas,
         ]);
         return $atlet->id;
+    }
+
+    public function form_store_sevent_data(Request $request)
+    {
+        foreach ($request->data['sevent'] as $key => $value) {
+            SingleEvent::create([
+                'single_event_terbaik_ajang' => $value['nama'],
+                'single_event_terbaik_no_pertandingan' => $value['nomor_pertandingan'],
+                'single_event_terbaik_tahun' => $value['tahun'],
+                'single_event_terbaik_tempat' => $value['tempat'],
+                'atlet_id' => intval($request->data['atlet'])
+            ]);
+        }
     }
 
     public function get_show_data($id)

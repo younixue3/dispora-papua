@@ -44,19 +44,19 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Kartu keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga" id="kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="kartu_keluarga" id="kartu_keluarga">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">KTP</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="ktp" id="ktp">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="ktp" id="ktp">
                     </div>
                 </div>
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Pas Foto</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="pas_foto" id="pas_foto">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="pas_foto" id="pas_foto">
                     </div>
                 </div>
                 <div>
@@ -428,7 +428,7 @@
                 </div>
             </div>
             <div class="mt-10">
-                <input id="submit_storage" type="submit"
+                <input id="submit_storage" type="button"
                        class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
                        value="Submit">
                 <a href="{{route('atlet.index')}}"
@@ -456,12 +456,17 @@
             });
         });
 
-        var form = new FormData();
-        form.append('name_lengkap', $('#nama_lengkap').val())
-        form.append('no_kartu_keluarga', $('#no_kartu_keluarga').val())
-
-        $('#form').on('submit', function (event) {
-            event.preventDefault();
+        $('#submit_storage').on('click', function (event) {
+            for (var i = 1; ; i++) {
+                arr.data.sevent.push({
+                    nama: $('#nama_sevent_' + i).val(),
+                    nomor_pertandingan: $('#nomor_pertandingan_sevent_' + i).val(),
+                    tahun: $('#tahun_sevent_' + i).val(),
+                    tempat: $('#tempat_sevent_' + i).val()
+                })
+                if (i == counter) break;
+            }
+            status = 0;
             $.ajax({
                 type: "POST",
                 url: window.location.origin + '/atlet/form/store',
@@ -474,7 +479,7 @@
                     npci_kota_kab: $('#npci_kota_kab').val(),
                     npci_provinsi: $('#npci_provinsi').val(),
                     kartu_keluarga: $('#kartu_keluarga').val(),
-                    ktp: $('#ktp').html(data.),
+                    ktp: $('#ktp').val(),
                     pas_foto: $('#pas_foto').val(),
                     no_hp: $('#no_hp').val(),
                     email: $('#email').val(),
@@ -530,10 +535,10 @@
                 success: function (data) {
                     // console.log('berhasil')
                     console.log(data)
-                    // arr.data.atlet = data;
+                    arr.data.atlet = data;
                     $.ajax({
                         type: "POST",
-                        url: window.location.origin + '/daftar/anggota',
+                        url: window.location.origin + '/atlet/form/sevent/store',
                         data: arr,
                         error: function (e) {
                             console.log(e)

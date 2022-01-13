@@ -23,6 +23,7 @@ Route::group(['prefix' => 'atlet', 'middleware' => ['web']], function () {
     Route::get('/form/add', [AtletController::class, 'formCreate'])->name('atlet.form_add');
     Route::post('/store', [AtletController::class, 'store'])->name('atlet.store');
     Route::post('/form/store', [AtletController::class, 'simpan'])->name('atlet.form_store');
+    Route::post('/form/sevent/store', [AtletController::class, 'store_sevent'])->name('atlet.store_sevent');
     Route::get('/export', [AtletController::class, 'export'])->name('atlet.export');
     Route::get('/export_atlet/{id}', [AtletController::class, 'export_atlet'])->name('atlet.export_atlet');
     Route::get('/download', [AtletController::class, 'download'])->name('atlet.download');
