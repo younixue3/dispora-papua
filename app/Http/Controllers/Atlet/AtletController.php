@@ -11,7 +11,7 @@ use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Atlet\Data\AtletController as DataController;
 
-use Session;
+use Session, Storage;
 
 class AtletController extends Controller
 {
@@ -67,8 +67,24 @@ class AtletController extends Controller
 
     public function simpan(Request $request)
     {
-//        return response($request);
+//        return response()->json([ 'data' => $request ]);
         return $this->data->form_store_data($request);
+    }
+
+    public function uploadgambar(Request $request)
+    {
+        $atlet = Atlet::find($request->atlet_id);
+        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('kk', $request->gambar_kk , $filename);
+        $atlet->link_kartu_keluarga = $filename;
+        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('ktp', $request->gambar_ktp , $filename);
+        $atlet->link_ktp = $filename;
+        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        Storage::disk('upload')->putFileAs('pasfoto', $request->gambar_pasfoto , $filename);
+        $atlet->link_pas_foto = $filename;
+        return $atlet->save();
+
     }
 
     public function store_sevent(Request $request)

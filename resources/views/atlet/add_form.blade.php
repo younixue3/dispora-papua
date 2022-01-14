@@ -44,7 +44,7 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Kartu keluarga</label>
                     <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="kartu_keluarga" id="kartu_keluarga">
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga" id="kartu_keluarga">
                     </div>
                 </div>
                 <div>
@@ -435,6 +435,17 @@
                    class="bg-red-500 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1">Cancel</a>
             </div>
         </form>
+        <form action="{{route(atlet.upload)}}" id="forminput" class="mt-10">
+            <div class="grid grid-cols-1 gap-y-2">
+            </div>
+            <input type="hidden" name="atlet_id" id="atlet_id">
+            <input class="border-2 w-1/3 rounded-lg px-2 py-1" type="file" name="gambar_kk">
+            <input class="border-2 w-1/3 rounded-lg px-2 py-1" type="file" name="gambar_ktp">
+            <input class="border-2 w-1/3 rounded-lg px-2 py-1" type="file" name="gambar_pasfoto">
+            <div class="mt-10">
+                <button class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1" type="submit" id="tombol">Upload Gambar</button>
+            </div>
+        </form>
     </div>
 @endsection
 @section('script')
@@ -472,7 +483,7 @@
                 url: window.location.origin + '/atlet/form/store',
                 dataType: 'json',
                 data: {
-                    name_lengkap: $('#nama_lengkap').val(),
+                    nama_lengkap: $('#nama_lengkap').val(),
                     no_kartu_keluarga: $('#no_kartu_keluarga').val(),
                     no_ktp: $('#no_ktp').val(),
                     tahun_npc: $('#tahun_npc').val(),

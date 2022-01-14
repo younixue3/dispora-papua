@@ -27,6 +27,7 @@ Route::group(['prefix' => 'atlet', 'middleware' => ['web']], function () {
     Route::get('/export', [AtletController::class, 'export'])->name('atlet.export');
     Route::get('/export_atlet/{id}', [AtletController::class, 'export_atlet'])->name('atlet.export_atlet');
     Route::get('/download', [AtletController::class, 'download'])->name('atlet.download');
+    Route::post('/upload', [AtletController::class, 'uploadgambar'])->name('atlet.upload');
 });
 
 Route::get('/logout', function() {
