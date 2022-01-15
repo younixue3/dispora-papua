@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inputter Atlet</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <script src="https://kit.fontawesome.com/6fd3995802.js" crossorigin="anonymous"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,7 +18,7 @@
         <div class="font-bold text-xl h-16 pr-2 md:pr-0 overflow-hidden truncate flex">
 {{--            <img class="min-h-5 h-5 mx-3 my-auto" src="../public/img/path4979.png" alt="">--}}
             <span class="ml-4 my-auto text-2xl align-middle font-light">
-                    RDeveloper
+                    <img class="m-auto w-full h-16" src="{{asset('KALTIM.png')}}">
             </span>
             <button onclick="CloseBar()" type="button" class="mx-auto md:hidden">
                 <!-- Heroicon name: outline/x -->
