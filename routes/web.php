@@ -16,6 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('statistic', [HomeController::class, 'statistic'])->name('statistic');
 
 Route::group(['prefix' => 'atlet', 'middleware' => ['web']], function () {
     Route::get('/', [AtletController::class, 'index'])->name('atlet.index');
