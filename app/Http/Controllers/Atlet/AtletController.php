@@ -67,6 +67,7 @@ class AtletController extends Controller
 
     public function simpan(Request $request)
     {
+//        return response($request);
 //        return response()->json([ 'data' => $request ]);
         return $this->data->form_store_data($request);
     }
@@ -74,16 +75,17 @@ class AtletController extends Controller
     public function uploadgambar(Request $request)
     {
         $atlet = Atlet::find($request->atlet_id);
-        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        $filename = $atlet->no_ktp . '_' . rand('00000','99999').'.png';
         Storage::disk('upload')->putFileAs('kk', $request->gambar_kk , $filename);
         $atlet->link_kartu_keluarga = $filename;
-        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        $filename = $atlet->no_ktp . '_' . rand('00000','99999').'.png';
         Storage::disk('upload')->putFileAs('ktp', $request->gambar_ktp , $filename);
         $atlet->link_ktp = $filename;
-        $filename = $atlet->nama_lengkap . '_' . rand('00000','99999').'.png';
+        $filename = $atlet->no_ktp . '_' . rand('00000','99999').'.png';
         Storage::disk('upload')->putFileAs('pasfoto', $request->gambar_pasfoto , $filename);
         $atlet->link_pas_foto = $filename;
-        return $atlet->save();
+        $atlet->save();
+        return redirect()->route('atlet.form_add')->with('success', 'sukses');
 
     }
 

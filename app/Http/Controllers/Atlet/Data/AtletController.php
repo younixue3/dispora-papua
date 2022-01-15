@@ -40,6 +40,7 @@ class AtletController extends Controller
 
     public function form_store_data(Request $request)
     {
+//        return response($request);
         $atlet = Atlet::create([
             'nama_lengkap' => $request->nama_lengkap,
             'no_kartu_keluarga' => $request->no_kartu_keluarga,

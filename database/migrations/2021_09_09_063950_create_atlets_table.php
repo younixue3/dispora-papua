@@ -21,9 +21,9 @@ class CreateAtletsTable extends Migration
             $table->string('tahun_bergabung_npc');
             $table->string('npci_kota_kabupaten');
             $table->string('npci_provinsi');
-            $table->text('link_kartu_keluarga');
-            $table->text('link_ktp');
-            $table->text('link_pas_foto');
+            $table->text('link_kartu_keluarga')->nullable();
+            $table->text('link_ktp')->nullable();
+            $table->text('link_pas_foto')->nullable();
             $table->string('no_handphone', 18);
             $table->string('email_aktif', 30);
             $table->string('tempat_lahir');
@@ -57,7 +57,7 @@ class CreateAtletsTable extends Migration
             $table->string('pendidikan_kuliah', 32);
             $table->string('jurusan_kuliah', 32);
             $table->string('periode_kuliah', 22);
-            $table->bigInteger('id_cabang_olahraga');
+            $table->string('cabang_olahraga');
             $table->string('kelas_klasifikasi_cabor', 20);
             $table->string('status_klasifikasi');
             $table->string('status_prestasi_atlet');
