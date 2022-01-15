@@ -114,6 +114,19 @@ class AtletController extends Controller
         }
     }
 
+    public function form_store_mevent_data(Request $request)
+    {
+        foreach ($request->data['mevent'] as $key => $value) {
+            MultiEvent::create([
+                'multi_event_terbaik_ajang' => $value['nama'],
+                'multi_event_terbaik_no_pertandingan' => $value['nomor_pertandingan'],
+                'multi_event_terbaik_tahun' => $value['tahun'],
+                'multi_event_terbaik_tempat' => $value['tempat'],
+                'atlet_id' => intval($request->data['atlet'])
+            ]);
+        }
+    }
+
     public function get_show_data($id)
     {
         $data = Atlet::findOrFail($id);

@@ -427,6 +427,58 @@
                     </div>
                 </div>
             </div>
+            <div class="flex flex-col mt-5">
+                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Ajang / Event
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Nomor pertandingan yang diikuti
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Tahun
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Tempat
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody id="table_mevent" class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <input id="nama_mevent_1" type="text" placeholder="Ajang / Event">
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <input id="nomor_pertandingan_mevent_1" type="text"
+                                               placeholder="Nomor pertandingan yang diikuti">
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <input id="tahun_mevent_1" type="text" placeholder="Tahun">
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <input id="tempat_mevent_1" type="text" placeholder="Tempat">
+                                    </td>
+                                </tr>
+                                <!-- More people... -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="button"
+                                class="bg-red-500 mt-5 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1 float-right"
+                                id="add_mevent">add
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="mt-10">
                 <input id="submit_storage" type="button"
                        class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
@@ -461,20 +513,32 @@
         var status = 1;
         $(document).ready(function () {
             i = 1;
+            im = 1;
             $('#add_event').click(function () {
                 i++;
                 counter = i
                 $('#table_event').append('<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nama_sevent_' + i + '" type="text" placeholder="Ajang / Event"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nomor_pertandingan_sevent_' + i + '" type="text" placeholder="Nomor pertandingan yang diikuti"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tahun_sevent_' + i + '" type="text" placeholder="Tahun"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tempat_sevent_' + i + '" type="text" placeholder="Tempat"></td></tr>')
             });
+            $('#add_mevent').click(function () {
+                im++;
+                counter = i
+                $('#table_mevent').append('<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nama_mevent_' + im + '" type="text" placeholder="Ajang / Event"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nomor_pertandingan_mevent_' + im + '" type="text" placeholder="Nomor pertandingan yang diikuti"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tahun_mevent_' + im + '" type="text" placeholder="Tahun"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tempat_mevent_' + im + '" type="text" placeholder="Tempat"></td></tr>')
+            });
         });
 
         $('#submit_storage').on('click', function (event) {
-            for (var i = 1; ; i++) {
+            for (var i = 1; i++;) {
                 arr.data.sevent.push({
                     nama: $('#nama_sevent_' + i).val(),
                     nomor_pertandingan: $('#nomor_pertandingan_sevent_' + i).val(),
                     tahun: $('#tahun_sevent_' + i).val(),
                     tempat: $('#tempat_sevent_' + i).val()
+                })
+                arr.data.mevent.push({
+                    nama: $('#nama_mevent_' + i).val(),
+                    nomor_pertandingan: $('#nomor_pertandingan_mevent_' + i).val(),
+                    tahun: $('#tahun_mevent_' + i).val(),
+                    tempat: $('#tempat_mevent_' + i).val()
                 })
                 if (i == counter) break;
             }
@@ -548,18 +612,29 @@
                     // console.log('berhasil')
                     console.log(data)
                     $('#atlet_id').val(data);
-                    // arr.data.atlet = data;
-                    // $.ajax({
-                    //     type: "POST",
-                    //     url: window.location.origin + '/atlet/form/sevent/store',
-                    //     data: arr,
-                    //     error: function (e) {
-                    //         console.log(e)
-                    //     },
-                    //     success: function (data) {
-                    //         console.log(data)
-                    //     }
-                    // });
+                    arr.data.atlet = data;
+                    $.ajax({
+                        type: "POST",
+                        url: window.location.origin + '/atlet/form/sevent/store',
+                        data: arr,
+                        error: function (e) {
+                            console.log(e)
+                        },
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    });
+                    $.ajax({
+                        type: "POST",
+                        url: window.location.origin + '/atlet/form/mevent/store',
+                        data: arr,
+                        error: function (e) {
+                            console.log(e)
+                        },
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    });
                 }
             });
             console.log(arr.data.kelompok)
