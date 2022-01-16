@@ -27,9 +27,15 @@ class HomeController extends Controller
     public function index()
     {
         $atlet = Atlet::get()->count();
-        $atlet_today = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
-        $data =  compact('atlet', 'atlet_today');
+        $data =  compact('atlet');
         return view('index', $data);
+    }
+
+    public function live_statistic()
+    {
+        $atlet_live = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
+//        dd($atlet_live);
+        return $atlet_live;
     }
 
     public function statistic()
@@ -53,6 +59,8 @@ class HomeController extends Controller
         $arr = [
             'past' => Statistic::orderBy('tanggal', 'ASC')->latest()->limit(5)->get(),
         ];
+//        $atlet_live = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
+//        dd(array_merge($arr['past'], array($at)));
 //        if ($result) {
 //
 //        }
