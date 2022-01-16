@@ -7,8 +7,8 @@
                 <i class="bg-purple-500 text-white rounded-full px-5 py-4 fas fa-shopping-bag"></i>
             </div>
             <div class="w-2/3 ml-10 my-auto">
-                <span class="text-4xl">236</span>
-                <div class="-mt-3 text-lg">Total Atlet<i class="mx-2 text-green-500 fas fa-caret-up"></i></div>
+                <span class="text-4xl">{{$atlet}}</span>
+                <div class="-mt-3 text-lg">Total Atlet</div>
             </div>
         </div>
         <div class="bg-gray-100 shadow-md text-gray-800 rounded-xl flex">
@@ -16,27 +16,8 @@
                 <i class="bg-green-500 text-white rounded-full px-3 py-4 fas fa-users"></i>
             </div>
             <div class="w-2/3 ml-10 my-auto">
-                <span class="text-4xl">56</span>
-                <div class="-mt-3 text-lg">Harian Atlet<i class="mx-2 text-green-500 fas fa-caret-up"></i></div>
-            </div>
-        </div>
-        <div class="bg-gray-100 shadow-md text-gray-800 rounded-xl flex">
-            <div class="w-1/3 text-4xl p-5">
-                <i class="bg-blue-500 text-white rounded-full px-4 py-4 fas fa-envelope"></i>
-            </div>
-            <div class="w-2/3 ml-10 my-auto">
-                <span class="text-4xl">12</span>
-                <div class="-mt-3 text-lg">Emails<i
-                        class="mx-2 text-red-500 fas fa-caret-up transform rotate-180"></i></div>
-            </div>
-        </div>
-        <div class="bg-gray-100 shadow-md text-gray-800 rounded-xl flex">
-            <div class="w-1/3 text-4xl p-5">
-                <i class="bg-yellow-500 text-white rounded-full px-3.5 py-4 fas fa-id-card-alt"></i>
-            </div>
-            <div class="w-2/3 ml-10 my-auto">
-                <span class="text-4xl">36</span>
-                <div class="-mt-3 text-lg">Subscribers<i class="mx-2 text-green-500 fas fa-caret-up"></i></div>
+                <span class="text-4xl">{{$atlet_today}}</span>
+                <div class="-mt-3 text-lg">Harian Atlet</div>
             </div>
         </div>
         <div class="bg-white col-span-3 shadow-lg border rounded-xl">
@@ -47,7 +28,22 @@
 @section('script')
     <script>
         var tanggal = [];
-        var atlet = []
+        var atlet = [[],[]];
+        // window.setInterval(, 5000);
+
+        function today_atlet() {
+            $.ajax({
+                type: 'GET',
+                url: window.location.origin + '/today_statistic',
+                error: function (e) {
+                    console.log(e)
+                },
+                success: function (data) {
+                    atlet[1].push()
+                }
+            })
+        }
+
         $(document).ready(function (e) {
             $.ajax({
                 type: "GET",
@@ -58,8 +54,9 @@
                     data.past.forEach(function (val) {
                         tanggal.push(val.tanggal)
                     })
+                    tanggal.push('Today')
                     data.past.forEach(function (val) {
-                        atlet.push(val.jumlah)
+                        atlet[0].push(val.jumlah)
                     })
                     var AreaCharts = new Chart(document.getElementById('AreaCharts'), {
                         type: 'line',
@@ -73,7 +70,7 @@
                                         below: 'rgb(0,224,7)'
                                     },
                                     label: 'Atlet',
-                                    data: atlet,
+                                    data: atlet[0],
                                     backgroundColor: [
                                         'rgba(0,224,7,0.5)',
                                     ],

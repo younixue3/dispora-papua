@@ -26,24 +26,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $atlet = Atlet::get()->count();
+        $atlet_today = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
+        $data =  compact('atlet', 'atlet_today');
+        return view('index', $data);
     }
 
     public function statistic()
     {
-        $lastest_item = Statistic::latest()->first()->tanggal;
-        $result = Carbon::createFromFormat('d, M Y', date('d, M Y', strtotime($lastest_item)))->isPast();
-        $atler = Atlet::where('created_at', 'LIKE' , '%'.$lastest_item.'%')->get()->count();
-        if ($result) {
+//        dd(today());
+        $lastest_item = Statistic::latest()->first();
+//        dd($lastest_item->created_at->format('Y-m-d'));
+//        dd($lastest_item->created_at->isToday());
+        $atler = Atlet::where('created_at', 'LIKE' , '%'.$lastest_item->created_at->format('Y-m-d').'%')->get()->count();
+//        dd($atler);
+        if ($lastest_item->created_at->isToday()) {
+
+        } else {
             Statistic::create([
                 'jumlah' => $atler,
-                'tanggal' => $lastest_item
+                'tanggal' => $lastest_item->tanggal
             ]);
         }
 //        dd($atler->count());
-//        dd(Statistic::orderBy('tanggal', 'ASC')->take(5)->get());
+//        dd(Statistic::orderBy('tanggal', 'DESC')->latest()->limit(5)->get());
         $arr = [
-            'past' => Statistic::orderBy('tanggal', 'ASC')->take(5)->get(),
+            'past' => Statistic::orderBy('tanggal', 'ASC')->latest()->limit(5)->get(),
         ];
 //        if ($result) {
 //
