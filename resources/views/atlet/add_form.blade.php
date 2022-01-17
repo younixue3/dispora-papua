@@ -42,24 +42,6 @@
                     </div>
                 </div>
                 <div>
-                    <label class="font-semibold pl-2 text-gray-500">Kartu keluarga</label>
-                    <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="file" name="kartu_keluarga" id="kartu_keluarga">
-                    </div>
-                </div>
-                <div>
-                    <label class="font-semibold pl-2 text-gray-500">KTP</label>
-                    <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="ktp" id="ktp">
-                    </div>
-                </div>
-                <div>
-                    <label class="font-semibold pl-2 text-gray-500">Pas Foto</label>
-                    <div>
-                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" type="text" name="pas_foto" id="pas_foto">
-                    </div>
-                </div>
-                <div>
                     <label class="font-semibold pl-2 text-gray-500">Nomor handphone</label>
                     <div>
                         <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="no_hp" id="no_hp">
