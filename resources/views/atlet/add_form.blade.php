@@ -509,7 +509,8 @@
         });
 
         $('#submit_storage').on('click', function (event) {
-            for (var i = 1; i++;) {
+            for (var i = 0; i++;) {
+                console.log('test')
                 arr.data.sevent.push({
                     nama: $('#nama_sevent_' + i).val(),
                     nomor_pertandingan: $('#nomor_pertandingan_sevent_' + i).val(),
@@ -522,7 +523,7 @@
                     tahun: $('#tahun_mevent_' + i).val(),
                     tempat: $('#tempat_mevent_' + i).val()
                 })
-                if (i == counter) break;
+                if (i == this.counter) break;
             }
             status = 0;
             $.ajax({
