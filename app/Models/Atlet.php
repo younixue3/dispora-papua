@@ -21,6 +21,14 @@ class Atlet extends Model
     public function getMultiEventAttribute(){
         return MultiEvent::where('atlet_id', $this->no_ktp)->count();
     }
+
+    public function getSingleEventData(){
+        return $this->hasMany(SingleEvent::class, 'atlet_id', 'id');
+    }
+
+    public function getMultiEventData(){
+        return $this->hasMany(MultiEvent::class, 'atlet_id', 'id');
+    }
 //    public function getCountCommentsAttribute($value)
 //    {
 //        return SingleEvent::where('atlet_id', 6474012803040002)->count();

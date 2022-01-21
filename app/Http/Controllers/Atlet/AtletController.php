@@ -110,9 +110,9 @@ class AtletController extends Controller
     public function export_atlet($id)
     {
         $data = $this->data->get_show_data($id);
-        $single_event =  $this->data->get_single_event_data($data->no_ktp);
-        $multi_event =  $this->data->get_multi_event_data($data->no_ktp);
-
+        $single_event =  $this->data->get_single_event_data($id);
+        $multi_event =  $this->data->get_multi_event_data($id);
+//        dd($data->);
         $data = compact('data', 'single_event', 'multi_event');
         return view('atlet/output/pdf', $data);
     }

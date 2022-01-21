@@ -57,7 +57,7 @@
                     <label class="font-semibold pl-2 text-gray-500">Tempat, tanggal lahir</label>
                     <div>
                         <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tempat_lahir" id="tempat_lahir">
-                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" id="tanggal_lahir" type="date">
+                        <input class="border-2 w-1/4 rounded-lg px-2 py-1" name="tanggal_lahir" id="tanggal_lahir" value="2020-08-29" type="date" data-date="" data-date-format="DD/MM/YYYY">
                     </div>
                 </div>
                 <div>
@@ -482,6 +482,8 @@
             </div>
         </form>
     </div>
+    <style>
+    </style>
 @endsection
 @section('script')
     <script>
@@ -492,6 +494,7 @@
         });
         const arr = {data: {atlet: null, sevent: [], mevent: []}}
         var counter = 1;
+        var counterm = 1;
         var status = 1;
         $(document).ready(function () {
             i = 1;
@@ -503,27 +506,33 @@
             });
             $('#add_mevent').click(function () {
                 im++;
-                counter = i
+                counterm = im
                 $('#table_mevent').append('<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nama_mevent_' + im + '" type="text" placeholder="Ajang / Event"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="nomor_pertandingan_mevent_' + im + '" type="text" placeholder="Nomor pertandingan yang diikuti"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tahun_mevent_' + im + '" type="text" placeholder="Tahun"></td><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><input id="tempat_mevent_' + im + '" type="text" placeholder="Tempat"></td></tr>')
             });
         });
 
         $('#submit_storage').on('click', function (event) {
-            for (var i = 0; i++;) {
-                console.log('test')
+            for (var i = 1 ; ; i++) {
+                // console.log(this.counter)
+                if (i > counter) break;
+                console.log(i)
                 arr.data.sevent.push({
                     nama: $('#nama_sevent_' + i).val(),
                     nomor_pertandingan: $('#nomor_pertandingan_sevent_' + i).val(),
                     tahun: $('#tahun_sevent_' + i).val(),
                     tempat: $('#tempat_sevent_' + i).val()
                 })
+            }
+            for (var im = 1 ; ; im++) {
+                // console.log(this.counter)
+                if (im > counterm) break;
+                console.log(im)
                 arr.data.mevent.push({
-                    nama: $('#nama_mevent_' + i).val(),
-                    nomor_pertandingan: $('#nomor_pertandingan_mevent_' + i).val(),
-                    tahun: $('#tahun_mevent_' + i).val(),
-                    tempat: $('#tempat_mevent_' + i).val()
+                    nama: $('#nama_mevent_' + im).val(),
+                    nomor_pertandingan: $('#nomor_pertandingan_mevent_' + im).val(),
+                    tahun: $('#tahun_mevent_' + im).val(),
+                    tempat: $('#tempat_mevent_' + im).val()
                 })
-                if (i == this.counter) break;
             }
             status = 0;
             $.ajax({
@@ -596,6 +605,7 @@
                     console.log(data)
                     $('#atlet_id').val(data);
                     arr.data.atlet = data;
+                    console.log(arr)
                     $.ajax({
                         type: "POST",
                         url: window.location.origin + '/atlet/form/sevent/store',
@@ -620,7 +630,7 @@
                     });
                 }
             });
-            console.log(arr.data.kelompok)
+            // console.log(arr.data.kelompok)
 
         });
     </script>

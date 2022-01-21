@@ -53,37 +53,173 @@
         <div class="col-span-1">:</div>
         <div class="col-span-6 text-left">{{$data->tanggal_lahir}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Agama</div>
         <div class="col-span-1">:</div>
         <div class="col-span-6 text-left">{{$data->agama}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Status Pernikahan</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->status_}}</div>
+        <div class="col-span-6 text-left">{{$data->status_pernikahan}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Jenis Kelamin</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->jenis_kelamin}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Pekerjaan</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->pekerjaan}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Alamat</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->alamat}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">RT / RW</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->rt_rw}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Kecamatan</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->alamat_kecamatan}}</div>
 
-        <div class="col-span-3">No Handphone</div>
+        <div class="col-span-3">Kabupaten / Kota</div>
         <div class="col-span-1">:</div>
-        <div class="col-span-6 text-left">{{$data->no_handphone}}</div>
+        <div class="col-span-6 text-left">{{$data->alamat_kabupaten}}</div>
+
+        <div class="col-span-3">Provinsi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->alamat_provinsi}}</div>
+
+        <div class="col-span-3">Kode POS</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->alamat_kode_pos}}</div>
+
+        <div class="col-span-3">obi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->hobi}}</div>
+
+        <div class="col-span-3">Tinggi badan</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tinggi_badan}}</div>
+
+        <div class="col-span-3">Berat badan</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->berat_badan}}</div>
+
+        <div class="col-span-3">Ukuran baju</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->ukuran_baju}}</div>
+
+        <div class="col-span-3">Ukuran celana</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->ukuran_celana}}</div>
+
+        <div class="col-span-3">Ukuran sepatu</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->ukuran_sepatu}}</div>
+
+        <div class="col-span-3">Tanggal terbit Passport</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->passport_tgl_terbit}}</div>
+
+        <div class="col-span-3">Tanggal kadaluarsa Passport</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->passport_tgl_kadaluarsa}}</div>
+
+        <div class="col-span-3">Nomor NPWWP</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->no_npwp}}</div>
+
+        <div class="col-span-3">Pendidikan SD</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->pendidikan_sd}}</div>
+
+        <div class="col-span-3">Tahun Lulus SD</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tahun_lulus_sd}}</div>
+
+        <div class="col-span-3">Pendidikan SMP/MTs/SLB</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->pendidikan_smp}}</div>
+
+        <div class="col-span-3">Tahun Lulus SMP</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tahun_lulus_smp}}</div>
+
+        <div class="col-span-3">Pendidikan SMA/SMK</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->pendidikan_sma}}</div>
+
+        <div class="col-span-3">Tahun Lulus SMA</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tahun_lulus_sma}}</div>
+
+        <div class="col-span-3">Pendidikan Perguruan Tingi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->pendidikan_kuliah}}</div>
+
+        <div class="col-span-3">Jurusan Kuliah</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->jurusan_kuliah}}</div>
+
+        <div class="col-span-3">Periode Kuliah</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->periode_kuliah}}</div>
+
+        <div class="col-span-3">Cabang Olahraga</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->cabang_olahraga}}</div>
+
+        <div class="col-span-3">Kelas Klasifikasi Cabot</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->kelas_klasifikasi_cabor}}</div>
+
+        <div class="col-span-3">Status Klasifikasi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->status_klasifikasi}}</div>
+
+        <div class="col-span-3">Status Prestasi Atlet</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->status_prestasi_atlet}}</div>
+
+        <div class="col-span-3">Riwayat Klasifikasi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->riwayat_klasifikasi}}</div>
+
+        <div class="col-span-3">Tahun Klasifikasi</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tahun_klasifikasi}}</div>
+
+        <div class="col-span-3">Riwayat Kesehatan / Cedera</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->riwayat_kesehatan_cedera}}</div>
+
+        <div class="col-span-3">Tahun Checkup</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tahun_checkup}}</div>
+
+        <div class="col-span-3">Vaksin Covid-19</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->vaksin_cov19}}</div>
+
+        <div class="col-span-3">Tanggal Vaksin ke-2</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->tgl_vaksin_kedua}}</div>
+
+        <div class="col-span-3">Riwayat Disabilitas</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->riwayat_disabilitas}}</div>
+
+        <div class="col-span-3">Alat Bantu Disabilitas</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->alat_bantu_disabilitas}}</div>
+
+        <div class="col-span-3">Jenis Disabilitas</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->jenis_disabilitas}}</div>
+
+        <div class="col-span-3">Tanggal kadaluarsa Passport</div>
+        <div class="col-span-1">:</div>
+        <div class="col-span-6 text-left">{{$data->passport_tgl_kadaluarsa}}</div>
     </div>
 {{--    <div class="grid grid-cols-5 p-10 gap-5">--}}
 {{--        <div class="col-span-1 col-start-1">--}}
@@ -295,53 +431,53 @@
 {{--            <label>Jenis Disabilitas</label>--}}
 {{--            <input class="w-full" disabled value="Jenis Disabilitas : {{$data->jenis_disabilitas}}">--}}
 {{--        </div>--}}
-{{--        <div class="col-span-3 py-10">--}}
-{{--            <label>Riwayat Prestasi Terbaik (Single Event)</label>--}}
-{{--            <table class="table-auto border-2 border-black w-full">--}}
-{{--                <thead>--}}
-{{--                    <tr class="font-bold text-center">--}}
-{{--                        <th class="border border-black">Ajang / Event</th>--}}
-{{--                        <th class="border border-black">Nomor Pertandingan yang diikuti</th>--}}
-{{--                        <th class="border border-black">Tahun</th>--}}
-{{--                        <th class="border border-black">Tempat</th>--}}
-{{--                    </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                    @foreach($single_event as $item)--}}
-{{--                        <tr>--}}
-{{--                            <td class="px-1">{{$item->single_event_terbaik_ajang}}</td>--}}
-{{--                            <td class="px-1">{{$item->single_event_terbaik_no_pertandingan}}</td>--}}
-{{--                            <td class="px-1">{{$item->single_event_terbaik_tahun}}</td>--}}
-{{--                            <td class="px-1">{{$item->single_event_terbaik_tempat}}</td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-{{--        </div>--}}
-{{--        <div class="col-span-3 py-10">--}}
-{{--            <label>Riwayat Prestasi Terbaik (Single Event)</label>--}}
-{{--            <table class="table-auto border-2 border-black w-full">--}}
-{{--                <thead>--}}
-{{--                <tr class="font-bold text-center">--}}
-{{--                    <th class="border border-black">Ajang / Event</th>--}}
-{{--                    <th class="border border-black">Nomor Pertandingan yang diikuti</th>--}}
-{{--                    <th class="border border-black">Tahun</th>--}}
-{{--                    <th class="border border-black">Tempat</th>--}}
-{{--                </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                    @foreach($multi_event as $item)--}}
-{{--                        <tr class="border border-black">--}}
-{{--                            <td class="px-1">{{$item->multi_event_terbaik_ajang}}</td>--}}
-{{--                            <td class="px-1">{{$item->multi_event_terbaik_no_pertandingan}}</td>--}}
-{{--                            <td class="px-1">{{$item->multi_event_terbaik_tahun}}</td>--}}
-{{--                            <td class="px-1">{{$item->multi_event_terbaik_tempat}}</td>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+        <div class="col-span-3 py-10">
+            <label>Riwayat Prestasi Terbaik (Single Event)</label>
+            <table class="table-auto border-2 border-black w-full">
+                <thead>
+                    <tr class="font-bold text-center">
+                        <th class="border border-black">Ajang / Event</th>
+                        <th class="border border-black">Nomor Pertandingan yang diikuti</th>
+                        <th class="border border-black">Tahun</th>
+                        <th class="border border-black">Tempat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($single_event as $item)
+                        <tr class="border border-black">
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_ajang}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_no_pertandingan}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_tahun}}</td>
+                            <td class="border border-black px-1">{{$item->single_event_terbaik_tempat}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="col-span-3 py-10">
+            <label>Riwayat Prestasi Terbaik (Single Event)</label>
+            <table class="table-auto border-2 border-black w-full">
+                <thead>
+                <tr class="font-bold text-center">
+                    <th class="border border-black">Ajang / Event</th>
+                    <th class="border border-black">Nomor Pertandingan yang diikuti</th>
+                    <th class="border border-black">Tahun</th>
+                    <th class="border border-black">Tempat</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($multi_event as $item)
+                        <tr class="border border-black">
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_ajang}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_no_pertandingan}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_tahun}}</td>
+                            <td class="border border-black px-1">{{$item->multi_event_terbaik_tempat}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
 <script>

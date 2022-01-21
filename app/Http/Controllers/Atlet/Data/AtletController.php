@@ -103,6 +103,7 @@ class AtletController extends Controller
 
     public function form_store_sevent_data(Request $request)
     {
+//        return response($request);
         foreach ($request->data['sevent'] as $key => $value) {
             SingleEvent::create([
                 'single_event_terbaik_ajang' => $value['nama'],
@@ -135,7 +136,9 @@ class AtletController extends Controller
 
     public function get_single_event_data($ktp)
     {
+//        dd($ktp);
         $data = SingleEvent::where('atlet_id', $ktp)->get();
+//        dd($data);
         return $data;
     }
 
