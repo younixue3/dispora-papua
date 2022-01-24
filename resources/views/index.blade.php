@@ -58,13 +58,13 @@
                             },
                             success: function (data) {
                                 // if(atlet[0][5] == null) {
-                                tanggal.push('Today')
-                                atlet[0].push(parseInt(data));
+                                tanggal.unshift('Today')
+                                atlet[0].unshift(parseInt(data));
                                 console.log(atlet);
                                 var AreaCharts = new Chart(document.getElementById('AreaCharts'), {
                                     type: 'line',
                                     data: {
-                                        labels: tanggal,
+                                        labels: tanggal.reverse(),
                                         datasets: [
                                             {
                                                 fill: {
@@ -73,7 +73,7 @@
                                                     below: 'rgb(0,224,7)'
                                                 },
                                                 label: 'Atlet',
-                                                data: atlet[0],
+                                                data: atlet[0].reverse(),
                                                 backgroundColor: [
                                                     'rgba(0,224,7,0.5)',
                                                 ],

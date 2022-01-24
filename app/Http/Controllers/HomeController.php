@@ -56,9 +56,9 @@ class HomeController extends Controller
             ]);
         }
 //        dd($atler->count());
-//        dd(Statistic::orderBy('tanggal', 'DESC')->latest()->limit(5)->get());
+//        dd(Statistic::latest()->get());
         $arr = [
-            'past' => Statistic::orderBy('tanggal', 'ASC')->latest()->limit(5)->get(),
+            'past' => Statistic::latest()->limit(5)->get(),
         ];
 //        $atlet_live = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
 //        dd(array_merge($arr['past'], array($at)));
