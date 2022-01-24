@@ -47,11 +47,12 @@ class HomeController extends Controller
         $atler = Atlet::where('created_at', 'LIKE' , '%'.$lastest_item->created_at->format('Y-m-d').'%')->get()->count();
 //        dd($atler);
         if ($lastest_item->created_at->isToday()) {
-
+//            dd('tidak simpan');
         } else {
+//            dd('simpan');
             Statistic::create([
                 'jumlah' => $atler,
-                'tanggal' => $lastest_item->tanggal
+                'tanggal' => $lastest_item->created_at
             ]);
         }
 //        dd($atler->count());
