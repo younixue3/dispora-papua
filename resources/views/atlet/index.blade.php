@@ -24,14 +24,22 @@
                     </select>
                     <button type="submit" class="inline-block bg-purple-500 hover:bg-purple-400 text-white text-center rounded-md shadow-md px-5 py-1"><span class="align-text-top">Export</span></button>
                 </form>
-                <form action="{{route('atlet.index')}}">
-                    <div class="flex rounded-md rounded-r-xl shadow-sm border shadow-xl my-2">
-                        <input type="text" name="search" class="flex-1 block rounded-l-xl focus:outline-none g px-3 py-1" placeholder="Cari Atlet">
-                        <button type="submit" class="inline-flex items-center rounded-r-xl border-l-0 border border-indigo-100 bg-indigo-100 text-white w-10 h-9">
-                            <i class="fas fa-search text-gray-600 text-2xl m-auto"></i>
-                        </button>
-                    </div>
-                </form>
+                <div>
+                    <select class="border-2 border-black">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                    <form action="{{route('atlet.index')}}">
+                        <div class="flex rounded-md rounded-r-xl shadow-sm border shadow-xl my-2">
+                            <input type="text" name="search" class="flex-1 block rounded-l-xl focus:outline-none g px-3 py-1" placeholder="Cari Atlet">
+                            <button type="submit" class="inline-flex items-center rounded-r-xl border-l-0 border border-indigo-100 bg-indigo-100 text-white w-10 h-9">
+                                <i class="fas fa-search text-gray-600 text-2xl m-auto"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <table class="w-full text-center">
