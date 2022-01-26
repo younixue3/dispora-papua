@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Atlet;
 use App\Imports\AtletImport;
 use App\Exports\AtletExport;
 use App\Http\Controllers\Controller;
+use App\Models\CabangOlahraga;
 use Illuminate\Http\Request;
 use App\Models\Atlet;
 use App\Models\User;
@@ -47,7 +48,9 @@ class AtletController extends Controller
 
     public function formCreate()
     {
-        return view('atlet/add_form');
+        $cabor = CabangOlahraga::get();
+        $data = compact('cabor');
+        return view('atlet/add_form', $data);
     }
 
     /**

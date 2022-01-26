@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Atlet;
+use App\Models\CabangOlahraga;
 use App\Models\Statistic;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -36,6 +37,17 @@ class HomeController extends Controller
         $atlet_live = Atlet::where('created_at', 'LIKE' , '%'.today()->format('Y-m-d').'%')->get()->count();
 //        dd($atlet_live);
         return $atlet_live;
+    }
+
+    public function cabor()
+    {
+        $arr = [];
+        $cabor = CabangOlahraga::get();
+        foreach ($cabor as $value) {
+           $count = Atlet::where('cabang_olahraga', $value->id)->get()->count();
+           array_push($arr, ['nama' => $value->nama, 'count' => $count]);
+        };
+        return $arr;
     }
 
     public function statistic()
