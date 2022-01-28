@@ -27,9 +27,10 @@ class AtletController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $atlet = $this->data->get_data();
+//        dd($request);
+        $atlet = $this->data->get_data($request);
 
         $data = compact('atlet');
 

@@ -17,10 +17,13 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class AtletController extends Controller
 {
-    public function get_data()
+    public function get_data(Request $request)
     {
         $data = Atlet::latest();
-
+        $paginate = 10;
+        if(request('limit')) {
+            $paginate = $request->limit;
+        }
         if(request('search')) {
             $data->orWhere('no_ktp', request('search'))
                 ->orWhere('npci_kota_kabupaten', 'like', '%'.request('search').'%')
@@ -28,7 +31,7 @@ class AtletController extends Controller
                 ->orWhere('nama_lengkap', 'like', '%'.request('search').'%');
         }
 
-        return $data->paginate(10);
+        return $data->paginate($paginate);
     }
 
     public function store_data(Request $request)
