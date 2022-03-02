@@ -45,6 +45,13 @@
                         </div>
                     </li>
                 </a>
+                <a href="{{route('cabang_olahraga.index')}}">
+                    <li class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
+                        <div class="{{ Route::is('cabang_olahraga.index') ? 'bg-gray-300' : 'bg-gray-100'}} hover:bg-gray-200 px-2 pt-1 rounded-lg">
+                            <i class="fas fa-futbol mr-3"></i><span>Cabang Olahraga</span>
+                        </div>
+                    </li>
+                </a>
             </ul>
         </div>
     </div>

@@ -34,6 +34,12 @@ Route::group(['prefix' => 'atlet', 'middleware' => ['web']], function () {
     Route::post('/upload', [AtletController::class, 'uploadgambar'])->name('atlet.upload');
 });
 
+Route::group(['prefix' => 'cabang_olahraga'], function () {
+   Route::get('/', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'index'])->name('cabang_olahraga.index');
+   Route::get('/add', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'create'])->name('cabang_olahraga.add');
+   Route::post('/store', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'store'])->name('cabang_olahraga.store');
+});
+
 Route::get('/logout', function() {
     Auth::logout();
     return redirect('login');

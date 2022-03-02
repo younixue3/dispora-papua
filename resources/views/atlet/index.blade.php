@@ -73,6 +73,6 @@
             @endforeach
             </tbody>
         </table>
-        {{$atlet->links()}}
+        {{$atlet->appends(request()->all())->links()}}
     </div>
 @endsection
