@@ -13,8 +13,8 @@
                 </div>
             </div>
             <div class="mt-10">
-                <input id="submit_storage" type="button"
-                       class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1"
+                <input id="submit_storage" type="submit"
+                       class="bg-blue-500 hover:bg-blue-400 text-white text-center rounded-md shadow-md px-5 py-1 cursor-pointer"
                        value="Submit">
                 <a href="{{route('atlet.index')}}"
                    class="bg-red-500 hover:bg-red-400 text-white text-center rounded-md shadow-md px-5 py-1">Cancel</a>

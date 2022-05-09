@@ -30,7 +30,7 @@ class CabangOlahragaController extends Controller
     public function store(Request $request)
     {
         if ($this->data->store_data($request)) {
-            return redirect()->route('cabang_olahraga.add')->with('success', 'sukses');
+            return redirect()->route('cabang_olahraga.index')->with('success', 'sukses');
         }
         return redirect()->back()->with('error', 'gagal');
     }

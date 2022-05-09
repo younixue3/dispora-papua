@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <table class="w-full text-center">
+        <table class="w-full table-fixed text-center">
             <thead class="bg-gray-100">
             <tr>
                 <th class="py-1">Name</th>
@@ -61,11 +61,21 @@
                             </div>
                         </div>
                     </td>
-                    <td class="py-1">{{$item->cabang_olahraga}}</td>
+                    <td class="py-1">{{\App\Models\CabangOlahraga::where('id', $item->cabang_olahraga)->first()->nama}}</td>
                     <td class="py-1">
                         <a href="{{route('atlet.export_atlet', $item->id)}}">
                             <button class="bg-green-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
                                 <span class="align-text-top">View</span>
+                            </button>
+                        </a>
+                        <a href="{{route('atlet.export_atlet', $item->id)}}">
+                            <button class="bg-yellow-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
+                                <span class="align-text-top">Edit</span>
+                            </button>
+                        </a>
+                        <a href="{{route('atlet.export_atlet', $item->id)}}">
+                            <button class="bg-red-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
+                                <span class="align-text-top">Delete</span>
                             </button>
                         </a>
                     </td>

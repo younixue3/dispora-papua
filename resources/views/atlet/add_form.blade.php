@@ -632,7 +632,7 @@
                             console.log(e)
                         },
                         success: function (data) {
-                            console.log(data)
+                            alert('Data berhasil di input')
                         }
                     });
                 }

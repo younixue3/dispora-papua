@@ -31,7 +31,6 @@ class AtletController extends Controller
     {
 //        dd($request);
         $atlet = $this->data->get_data($request);
-
         $data = compact('atlet');
 
         return view('atlet/index', $data);
@@ -140,7 +139,7 @@ class AtletController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
