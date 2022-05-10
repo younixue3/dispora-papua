@@ -139,7 +139,8 @@ class AtletController extends Controller
      */
     public function edit($id)
     {
-
+        $atlet = $this->data->edit_data($id);
+        return view('atlet/add_form', $atlet);
     }
 
     /**
@@ -162,7 +163,8 @@ class AtletController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $atlet = $this->data->destroy_data($id);
+        return redirect(route('atlet.index'));
     }
 
     public function download()

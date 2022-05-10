@@ -68,12 +68,12 @@
                                 <span class="align-text-top">View</span>
                             </button>
                         </a>
-                        <a href="{{route('atlet.export_atlet', $item->id)}}">
+                        <a href="{{route('atlet.edit', $item->id)}}">
                             <button class="bg-yellow-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
                                 <span class="align-text-top">Edit</span>
                             </button>
                         </a>
-                        <a href="{{route('atlet.export_atlet', $item->id)}}">
+                        <a href="{{route('atlet.delete', $item->id)}}">
                             <button class="bg-red-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
                                 <span class="align-text-top">Delete</span>
                             </button>

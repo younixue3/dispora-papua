@@ -32,6 +32,9 @@ Route::group(['prefix' => 'atlet', 'middleware' => ['web']], function () {
     Route::get('/export_atlet/{id}', [AtletController::class, 'export_atlet'])->name('atlet.export_atlet');
     Route::get('/download', [AtletController::class, 'download'])->name('atlet.download');
     Route::post('/upload', [AtletController::class, 'uploadgambar'])->name('atlet.upload');
+    Route::get('/delete/{id}', [AtletController::class, 'destroy'])->name('atlet.delete');
+    Route::get('/form/edit/{id}', [AtletController::class, 'edit'])->name('atlet.edit');
+    Route::get('/form/update/{id}', [AtletController::class, 'edit'])->name('atlet.edit');
 });
 
 Route::group(['prefix' => 'cabang_olahraga'], function () {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Atlet\Data;
 
 use App\Http\Controllers\Controller;
+use App\Models\CabangOlahraga;
 use Illuminate\Http\Request;
 
 use Session, Storage;
@@ -149,5 +150,20 @@ class AtletController extends Controller
     {
         $data = MultiEvent::where('atlet_id', $ktp)->get();
         return $data;
+    }
+
+    public function destroy_data($id)
+    {
+//        dd($id);
+        Atlet::find($id)->delete();
+    }
+
+    public function edit_data($id)
+    {
+//        dd($id);
+        $atlet = Atlet::find($id);
+        $cabor = CabangOlahraga::get();
+        $compact = compact('atlet' , 'cabor');
+        return $compact;
     }
 }
