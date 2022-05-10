@@ -140,7 +140,7 @@ class AtletController extends Controller
     public function edit($id)
     {
         $atlet = $this->data->edit_data($id);
-        return view('atlet/add_form', $atlet);
+        return view('atlet/edit_form', $atlet);
     }
 
     /**
@@ -152,7 +152,8 @@ class AtletController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $atlet = $this->data->update_data($request, $id);
+        return redirect()->back();
     }
 
     /**
