@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\CabangOlahraga;
 
 use App\Http\Controllers\Controller;
+use App\Models\CabangOlahraga;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CabangOlahraga\Data\CabangOlahragaController as DataController;
@@ -33,5 +34,26 @@ class CabangOlahragaController extends Controller
             return redirect()->route('cabang_olahraga.index')->with('success', 'sukses');
         }
         return redirect()->back()->with('error', 'gagal');
+    }
+
+    public function delete($id)
+    {
+        CabangOlahraga::find($id)->delete();
+        return redirect(route('cabang_olahraga.index'));
+    }
+
+    public function edit($id)
+    {
+        $cabor = CabangOlahraga::find($id);
+        $compact = compact('cabor');
+        return view('cabang_olahraga.edit_form', $compact);
+    }
+
+    public function update(Request $request, $id)
+    {
+        CabangOlahraga::find($id)->update([
+            'nama' => $request->nama_cabang_olahraga
+        ]);
+        return redirect(route('cabang_olahraga.index'));
     }
 }

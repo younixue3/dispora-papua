@@ -611,6 +611,7 @@
                 },
                 success: function (data) {
                     // console.log('berhasil')
+                    console.log('data')
                     console.log(data)
                     $('#atlet_id').val(data);
                     arr.data.atlet = data;

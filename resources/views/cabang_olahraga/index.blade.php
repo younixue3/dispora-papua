@@ -26,9 +26,14 @@
                         </div>
                     </td>
                     <td class="py-1">
-                        <a href="{{route('atlet.export_atlet', $item->id)}}">
-                            <button class="bg-green-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
-                                <span class="align-text-top">View</span>
+                        <a href="{{route('cabang_olahraga.edit', $item->id)}}">
+                            <button class="bg-yellow-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
+                                <span class="align-text-top">Edit</span>
+                            </button>
+                        </a>
+                        <a href="{{route('cabang_olahraga.delete', $item->id)}}">
+                            <button class="bg-red-500 text-white text-center rounded-md shadow-md px-5 py-1 relative">
+                                <span class="align-text-top">Delete</span>
                             </button>
                         </a>
                     </td>

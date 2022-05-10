@@ -41,6 +41,9 @@ Route::group(['prefix' => 'cabang_olahraga'], function () {
    Route::get('/', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'index'])->name('cabang_olahraga.index');
    Route::get('/add', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'create'])->name('cabang_olahraga.add');
    Route::post('/store', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'store'])->name('cabang_olahraga.store');
+   Route::get('/edit/{id}', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'edit'])->name('cabang_olahraga.edit');
+   Route::get('/delete/{id}', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'delete'])->name('cabang_olahraga.delete');
+   Route::put('/update/{id}', [\App\Http\Controllers\CabangOlahraga\CabangOlahragaController::class, 'update'])->name('cabang_olahraga.update');
 });
 
 Route::get('/logout', function() {

@@ -107,7 +107,7 @@ class AtletController extends Controller
 
     public function form_store_sevent_data(Request $request)
     {
-//        return response($request);
+        SingleEvent::where('atlet_id', intval($request->data['atlet']))->delete();
         foreach ($request->data['sevent'] as $key => $value) {
             SingleEvent::create([
                 'single_event_terbaik_ajang' => $value['nama'],
@@ -121,6 +121,7 @@ class AtletController extends Controller
 
     public function form_store_mevent_data(Request $request)
     {
+        MultiEvent::where('atlet_id', intval($request->data['atlet']))->delete();
         foreach ($request->data['mevent'] as $key => $value) {
             MultiEvent::create([
                 'multi_event_terbaik_ajang' => $value['nama'],
@@ -226,5 +227,6 @@ class AtletController extends Controller
             'alat_bantu_disabilitas' => $request->alat_bantu_disabilitas,
             'jenis_disabilitas' => $request->jenis_disabilitas,
         ]);
+        return $id;
     }
 }

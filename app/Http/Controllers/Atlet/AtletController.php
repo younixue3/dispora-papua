@@ -153,7 +153,7 @@ class AtletController extends Controller
     public function update(Request $request, $id)
     {
         $atlet = $this->data->update_data($request, $id);
-        return redirect()->back();
+        return $atlet;
     }
 
     /**
