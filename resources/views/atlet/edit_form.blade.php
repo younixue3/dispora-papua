@@ -610,7 +610,7 @@
                     console.log(e)
                 },
                 success: function (data) {
-                    // console.log('berhasil')
+                    console.log('berhasil')
                     // console.log('data')
                     // console.log(data)
                     $('#atlet_id').val(data);
@@ -648,6 +648,7 @@
                             },
                             success: function (data) {
                                 alert('Data berhasil di input')
+                                arr.data.mevent = []
                             }
                         });
                     } if (arr.data.sevent[0].nama !== '') {
@@ -663,6 +664,7 @@
                             },
                             success: function (data) {
                                 alert('Data berhasil di input')
+                                arr.data.sevent = []
                             }
                         });
                     } else {

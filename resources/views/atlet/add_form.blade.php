@@ -613,28 +613,38 @@
                     $('#atlet_id').val(data);
                     arr.data.atlet = data;
                     console.log(arr)
-                    $.ajax({
-                        type: "POST",
-                        url: window.location.origin + '/atlet/form/sevent/store',
-                        data: arr,
-                        error: function (e) {
-                            console.log(e)
-                        },
-                        success: function (data) {
-                            console.log(data)
-                        }
-                    });
-                    $.ajax({
-                        type: "POST",
-                        url: window.location.origin + '/atlet/form/mevent/store',
-                        data: arr,
-                        error: function (e) {
-                            console.log(e)
-                        },
-                        success: function (data) {
-                            alert('Data berhasil di input')
-                        }
-                    });
+                    if (arr.data.mevent[0].nama !== '') {
+                        $.ajax({
+                            type: "POST",
+                            url: window.location.origin + '/atlet/form/mevent/store',
+                            data: arr,
+                            error: function (e) {
+                                console.log(e)
+                            },
+                            success: function (data) {
+                                alert('Data berhasil di input')
+                                arr.data.mevent = []
+                            }
+                        });
+                    } if (arr.data.sevent[0].nama !== '') {
+                        $('#atlet_id').val(data);
+                        arr.data.atlet = data;
+                        console.log(arr)
+                        $.ajax({
+                            type: "POST",
+                            url: window.location.origin + '/atlet/form/sevent/store',
+                            data: arr,
+                            error: function (e) {
+                                console.log(e)
+                            },
+                            success: function (data) {
+                                alert('Data berhasil di input')
+                                arr.data.sevent = []
+                            }
+                        });
+                    } else {
+                        alert('Data berhasil di input')
+                    }
                 }
             });
             // console.log(arr.data.kelompok)

@@ -107,6 +107,7 @@ class AtletController extends Controller
 
     public function form_store_sevent_data(Request $request)
     {
+//        dd($request, SingleEvent::where('atlet_id', intval($request->data['atlet']))->delete());
         SingleEvent::where('atlet_id', intval($request->data['atlet']))->delete();
         foreach ($request->data['sevent'] as $key => $value) {
             SingleEvent::create([
