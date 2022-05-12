@@ -275,14 +275,14 @@
                 <div>
                     <label class="font-semibold pl-2 text-gray-500">Cabang Olahraga</label>
                     <div>
-{{--                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="cabor" id="cabor">--}}
-                        <select class="border-2 w-1/2 rounded-lg px-2 py-1" name="cabor" id="cabor">
-                            @foreach($cabor as $key => $value)
-                                <option value="{{$value->id}}">
-                                    {{$value->nama}}
-                                </option>
-                            @endforeach
-                        </select>
+                        <input class="border-2 w-1/2 rounded-lg px-2 py-1" name="cabor" id="cabor">
+{{--                        <select class="border-2 w-1/2 rounded-lg px-2 py-1" name="cabor" id="cabor">--}}
+{{--                            @foreach($cabor as $key => $value)--}}
+{{--                                <option value="{{$value->id}}">--}}
+{{--                                    {{$value->nama}}--}}
+{{--                                </option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
                     </div>
                 </div>
                 <div>
